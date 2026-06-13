@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WebDev · Catálogo de Software</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+  <div class="scanlines"></div>
+  <div class="grain"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">⊞</span>
+      <h1 class="brand-title">webdev<em>.catálogo</em></h1>
+      <span class="brand-version">software para desarrollo web · endoflife.date + osv.dev</span>
+    </div>
+    <div class="topbar-status">
+      <span class="live-label" id="summary">cargando…</span>
+      <button class="btn-ghost" id="diagBtn" title="Probar conexión a internet">probar conexión</button>
+      <button class="btn-primary" id="refreshBtn" title="Actualizar todo desde internet">↻ actualizar catálogo</button>
+      <button class="btn-ghost" id="exportBtn">⬇ CSV</button>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-view="catalogo">catálogo</button>
+    <button class="tab" data-view="historial">historial de auditorías</button>
+    <button class="tab" data-view="codigo">análisis de código</button>
+  </nav>
+
+  <main class="container">
+
+  <div class="view" id="view-catalogo">
+
+    <section class="panel" id="proxyPanel">
+      <div class="panel-label">// conexión</div>
+      <p class="help">
+        Este catálogo se conecta a internet (endoflife.date + osv.dev). Si estás
+        detrás de un proxy corporativo, indícalo aquí. Usa el almacén de
+        certificados del sistema operativo, así que las CA de inspección (Zscaler,
+        etc.) ya confiadas por Windows funcionan automáticamente.
+      </p>
+      <div class="filters">
+        <div class="field" style="flex:1">
+          <label>Proxy HTTP(S) — opcional (ej. http://10.16.126.4:3128)</label>
+          <input type="text" id="proxyUrl" placeholder="http://host:puerto  (vacío = directo o variable de entorno)" />
+        </div>
+        <button class="btn-ghost" id="proxySave">guardar</button>
+        <span class="proxy-status" id="proxyMsg"></span>
+      </div>
+      <div class="diag-log" id="diagLog" hidden></div>
+      <div class="progress" id="progress" hidden><span></span></div>
+    </section>
+
+    <section class="panel" id="qaPanel">
+      <div class="panel-label">// QA · auditar manifiesto de dependencias</div>
+      <p class="help">
+        Pega o sube el <code>package.json</code> (npm/web) o el
+        <code>build.gradle.kts</code> / <code>settings.gradle.kts</code> (Android/Gradle)
+        de un desarrollo. Por cada dependencia verás: versión declarada, última
+        disponible (npm o Maven Central / Google Maven), cuánto está desfasada
+        (major/minor/patch), CVEs conocidos y el análisis de cumplimiento legal.
+        Las dependencias Gradle se incorporan además al inventario.
+      </p>
+      <div class="filters" style="align-items:stretch">
+        <div class="field" style="flex:1">
+          <label>Contenido del manifiesto (package.json o build.gradle.kts)</label>
+          <textarea id="pkgInput" rows="5" placeholder='{ "dependencies": { "jquery": "^3.7.1" } }   —o—   dependencies { implementation("androidx.core:core-ktx:1.13.1") }'
+            style="font-family:inherit;font-size:12px;padding:8px 10px;background:var(--bg);border:1px solid var(--line);border-radius:3px;color:var(--fg);resize:vertical;width:100%"></textarea>
+        </div>
+        <div class="field" style="justify-content:flex-end;gap:8px">
+          <label>o subir archivo (package.json o build.gradle.kts)</label>
+          <input type="file" id="pkgFile" accept=".json,.kts,.gradle,application/json,text/plain" style="font-size:11px" />
+          <button class="btn-primary" id="auditBtn">▶ auditar</button>
+          <button class="btn-primary" id="reportBtn" hidden>📄 generar reporte IA</button>
+          <button class="btn-ghost" id="auditExport" hidden>⬇ CSV</button>
+        </div>
+        <div class="field" style="justify-content:flex-end;gap:8px">
+          <label title="Opcional: para resolver versiones declaradas en el catálogo de versiones de Gradle">o libs.versions.toml (opcional, Gradle)</label>
+          <input type="file" id="tomlFile" accept=".toml,text/plain" style="font-size:11px" />
+          <label title="Opcional: para detectar la versión de Gradle del proyecto">o gradle-wrapper.properties (opcional)</label>
+          <input type="file" id="extraFile" accept=".properties,text/plain" style="font-size:11px" />
+        </div>
+      </div>
+      <div class="filters" style="margin-top:6px">
+        <div class="field" style="flex:1">
+          <label>Nombre de quien genera el informe (aparece en el documento exportado)</label>
+          <input type="text" id="authorInput" placeholder="ej. María Pérez — Analista QA" />
+        </div>
+      </div>
+      <details class="ai-config">
+        <summary>⚙ configurar IA (Claude) — opcional</summary>
+        <p class="help">
+          El reporte siempre se genera con el modelo de riesgo local. Si configuras
+          una API key de Anthropic, además se redacta el Análisis y la Conclusión
+          con Claude. La key se guarda localmente (config.json) y se usa a través
+          de tu proxy/CA. Necesita acceso a <code>api.anthropic.com</code>.
+        </p>
+        <div class="filters">
+          <div class="field" style="flex:1">
+            <label>Anthropic API key</label>
+            <input type="password" id="aiKey" placeholder="sk-ant-... (se guarda local; vacío = solo modelo local)" />
+          </div>
+          <div class="field">
+            <label>Modelo</label>
+            <input type="text" id="aiModel" placeholder="claude-sonnet-4-6" />
+          </div>
+          <button class="btn-ghost" id="aiSave">guardar</button>
+          <span class="proxy-status" id="aiMsg"></span>
+        </div>
+      </details>
+      <div id="qaVerdict" class="qa-verdict" hidden></div>
+      <div class="table-wrap" id="qaResultWrap" hidden>
+        <table class="cat-table" id="qaTable">
+          <thead>
+            <tr>
+              <th style="width:90px">estado</th>
+              <th style="width:230px">paquete</th>
+              <th style="width:90px">sección</th>
+              <th style="width:110px">declarada</th>
+              <th style="width:100px">instalada</th>
+              <th style="width:110px">última npm</th>
+              <th style="width:90px">desfase</th>
+              <th style="width:110px">CVE</th>
+            </tr>
+          </thead>
+          <tbody id="qaBody"></tbody>
+        </table>
+      </div>
+      <div id="reportOut" class="report-out" hidden></div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-label">// filtros</div>
+      <div class="filters">
+        <div class="field" style="flex:2">
+          <label>Búsqueda</label>
+          <input type="text" id="search" placeholder="producto, versión, CVE..." />
+        </div>
+        <div class="field">
+          <label>Categoría</label>
+          <select id="fCategory"><option value="">todas</option></select>
+        </div>
+        <div class="field">
+          <label>Estado de soporte</label>
+          <select id="fStatus">
+            <option value="">todos</option>
+            <option value="ok">en soporte</option>
+            <option value="obsolete">obsoleto</option>
+            <option value="eol">EOL</option>
+            <option value="unknown">desconocido</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>CVE</label>
+          <select id="fVuln">
+            <option value="">cualquiera</option>
+            <option value="vulnerable">con CVE</option>
+            <option value="clean">sin CVE</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-label">// catálogo · <span id="rowCount">0</span> versiones</div>
+      <div class="table-wrap">
+        <table class="cat-table">
+          <thead>
+            <tr>
+              <th style="width:90px">estado</th>
+              <th style="width:170px">producto</th>
+              <th style="width:90px">ciclo</th>
+              <th style="width:120px">última versión</th>
+              <th style="width:110px">release</th>
+              <th style="width:110px">soporte</th>
+              <th style="width:110px">EOL</th>
+              <th style="width:90px">CVE</th>
+            </tr>
+          </thead>
+          <tbody id="catBody">
+            <tr><td colspan="8" class="loading">cargando catálogo…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </div><!-- /view-catalogo -->
+
+  <div class="view" id="view-historial" hidden>
+    <section class="panel">
+      <div class="panel-label">// historial de auditorías</div>
+      <p class="help">
+        Cada <code>package.json</code> que generes como reporte queda registrado
+        aquí con su hash SHA-256, la app y su versión. Puedes ver la auditoría en
+        una ventana emergente o descargar el reporte en PDF, DOCX, MD, TXT o CSV.
+      </p>
+      <div class="filters" style="margin-bottom:10px">
+        <div class="field" style="flex:1">
+          <label>Buscar</label>
+          <input type="text" id="histSearch" placeholder="archivo, app, hash..." />
+        </div>
+        <button class="btn-ghost" id="histReload">↻ recargar</button>
+      </div>
+      <div class="table-wrap">
+        <table class="cat-table" id="histTable">
+          <thead>
+            <tr>
+              <th style="width:60px">fecha</th>
+              <th style="width:160px">archivo</th>
+              <th style="width:150px">aplicación</th>
+              <th style="width:80px">versión</th>
+              <th style="width:90px">veredicto</th>
+              <th style="width:210px">SHA-256</th>
+              <th style="width:80px">auditoría</th>
+              <th style="width:200px">reporte</th>
+              <th style="width:40px"></th>
+            </tr>
+          </thead>
+          <tbody id="histBody">
+            <tr><td colspan="9" class="loading">cargando historial…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div><!-- /view-historial -->
+
+  <div class="view" id="view-codigo" hidden>
+    <section class="panel">
+      <div class="panel-label">// análisis estático de código fuente</div>
+      <p class="help">
+        Sube el comprimido (<code>.zip</code>, <code>.7z</code> o <code>.rar</code>)
+        del código fuente de la aplicación. Se analiza en un entorno aislado
+        (nunca se ejecuta el código) buscando incumplimientos respecto de la
+        <strong>Guía Técnica de Lineamientos para el Desarrollo de Software</strong>
+        (División de Gobierno Digital, SEGPRES) y el marco legal chileno
+        (Leyes 19.628, 21.096, 21.180 y 21.459). La evidencia de secretos se
+        muestra <strong>redactada</strong> (principio de mínima exposición).
+      </p>
+      <div class="filters" style="align-items:stretch">
+        <div class="field" style="flex:1">
+          <label>Comprimido del código fuente</label>
+          <input type="file" id="codeFile" accept=".zip,.7z,.rar" />
+        </div>
+        <div class="field" style="flex:1">
+          <label>Analista que genera el informe</label>
+          <input type="text" id="codeAuthor" placeholder="ej. María Pérez — QA" />
+        </div>
+        <button class="btn-primary" id="codeScanBtn">▶ analizar</button>
+      </div>
+      <div id="codeScanOut" hidden></div>
+    </section>
+  </div><!-- /view-codigo -->
+
+  </main>
+
+  <div class="modal-overlay" id="auditModal" hidden>
+    <div class="modal">
+      <div class="modal-head">
+        <span id="modalTitle">Auditoría</span>
+        <span class="modal-actions">
+          <button class="btn-ghost rep-exp-modal" data-fmt="pdf">PDF</button>
+          <button class="btn-ghost rep-exp-modal" data-fmt="docx">DOCX</button>
+          <button class="btn-ghost rep-exp-modal" data-fmt="md">MD</button>
+          <button class="btn-ghost rep-exp-modal" data-fmt="txt">TXT</button>
+          <button class="btn-ghost rep-exp-modal" data-fmt="csv">CSV</button>
+          <button class="btn-ghost" id="modalClose">✕</button>
+        </span>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+
+  <footer class="bottombar">
+    <span>webdev.catálogo · datos de endoflife.date + osv.dev · caché local en catalog.db</span>
+    <span id="footClock">--:--:--</span>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

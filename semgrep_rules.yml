@@ -1,0 +1,131 @@
+# Reglas LOCALES de Semgrep (offline) para webdev_catalog.
+# Alineadas a los controles normativos (Decretos 7/9/10/11, DS 83) y a CWE.
+# Diseñadas para ejecutarse SIN red (no usan el registro semgrep.dev).
+rules:
+  # ---------------- Secretos embebidos ----------------
+  - id: secreto-embebido-generico
+    languages: [generic]
+    severity: ERROR
+    message: "Posible secreto/credencial embebido en el código fuente."
+    metadata:
+      cwe: "CWE-798"
+      titulo: "Secreto embebido detectado por Semgrep"
+      categoria: "COMPARTIMENTAJE"
+      mitigacion: "Mover el secreto a variable de entorno o gestor de secretos; rotar la credencial; excluir del repositorio."
+    patterns:
+      - pattern-regex: '(?i)(api[_-]?key|secret|token|passwd|password|client[_-]?secret)\s*[:=]\s*["''][A-Za-z0-9_\-\.\/+]{16,}["'']'
+      - pattern-not-regex: '(?i)(your|example|sample|placeholder|changeme|xxxx|dummy|fake|test|<.*>|\{\{)'
+
+  - id: aws-access-key
+    languages: [generic]
+    severity: ERROR
+    message: "Posible AWS Access Key ID embebida."
+    metadata:
+      cwe: "CWE-798"
+      titulo: "AWS Access Key embebida"
+      categoria: "COMPARTIMENTAJE"
+      mitigacion: "Revocar y rotar la llave en AWS IAM; usar roles/Secrets Manager."
+    patterns:
+      - pattern-regex: '\b(AKIA|ASIA)[0-9A-Z]{16}\b'
+
+  # ---------------- Criptografía débil ----------------
+  - id: hash-debil-md5-sha1
+    languages: [java, kotlin]
+    severity: WARNING
+    message: "Uso de algoritmo de hash débil (MD5/SHA-1)."
+    metadata:
+      cwe: "CWE-327"
+      titulo: "Hash criptográfico débil (MD5/SHA-1)"
+      categoria: "CRIPTOGRAFIA"
+      mitigacion: "Usar SHA-256+; para contraseñas, Bcrypt/PBKDF2/Argon2 (Decreto 9 Art. 6)."
+    patterns:
+      - pattern-regex: 'MessageDigest\.getInstance\(\s*"(MD5|SHA-1|SHA1)"\s*\)'
+
+  - id: cifrado-ecb
+    languages: [java, kotlin]
+    severity: WARNING
+    message: "Uso de modo de cifrado ECB (filtra patrones del texto cifrado)."
+    metadata:
+      cwe: "CWE-327"
+      titulo: "Cifrado en modo ECB"
+      categoria: "CRIPTOGRAFIA"
+      mitigacion: "Usar AES/GCM o AES/CBC con IV aleatorio."
+    patterns:
+      - pattern-regex: 'Cipher\.getInstance\(\s*"[^"]*ECB[^"]*"\s*\)'
+
+  # ---------------- Red / transporte ----------------
+  - id: trust-all-certs
+    languages: [java, kotlin]
+    severity: ERROR
+    message: "Validación de certificados TLS deshabilitada (TrustManager permisivo)."
+    metadata:
+      cwe: "CWE-295"
+      titulo: "Validación TLS deshabilitada"
+      categoria: "RED"
+      mitigacion: "Eliminar el TrustManager permisivo; validar la cadena y el hostname (Decreto 9 Art. 6)."
+    patterns:
+      - pattern-regex: '(checkServerTrusted\s*\([^)]*\)\s*\{\s*\}|TrustManager\[\]\s*\{|ALLOW_ALL_HOSTNAME_VERIFIER|HostnameVerifier\s*\{\s*return\s+true)'
+
+  # ---------------- SQL ----------------
+  - id: sql-concatenado
+    languages: [java, kotlin]
+    severity: ERROR
+    message: "Consulta SQL construida por concatenación (riesgo de inyección)."
+    metadata:
+      cwe: "CWE-89"
+      titulo: "SQL por concatenación"
+      categoria: "INYECCION"
+      mitigacion: "Usar consultas parametrizadas / prepared statements (DS 83 Art. 31-32)."
+    patterns:
+      - pattern-regex: '(rawQuery|execSQL|createStatement\(\)\.execute\w*|\.query)\s*\(\s*"[^"]*"\s*\+'
+
+  # ---------------- WebView ----------------
+  - id: webview-javascript
+    languages: [java, kotlin]
+    severity: WARNING
+    message: "WebView con JavaScript habilitado y/o interfaz nativa expuesta."
+    metadata:
+      cwe: "CWE-749"
+      titulo: "WebView inseguro"
+      categoria: "PLATAFORMA"
+      mitigacion: "Deshabilitar JS si no es imprescindible; no exponer interfaces nativas a contenido no confiable."
+    patterns:
+      - pattern-regex: '(setJavaScriptEnabled\s*\(\s*true\s*\)|addJavascriptInterface\s*\()'
+
+  # ---------------- JavaScript / TypeScript ----------------
+  - id: js-eval-peligroso
+    languages: [javascript, typescript]
+    severity: WARNING
+    message: "Uso de eval()/Function() con datos potencialmente no confiables."
+    metadata:
+      cwe: "CWE-95"
+      titulo: "Evaluación dinámica de código (eval)"
+      categoria: "INYECCION"
+      mitigacion: "Evitar eval/Function; usar JSON.parse o lógica explícita."
+    patterns:
+      - pattern-regex: '\beval\s*\(|new\s+Function\s*\('
+
+  - id: js-innerhtml
+    languages: [javascript, typescript]
+    severity: WARNING
+    message: "Asignación a innerHTML (riesgo de XSS si el dato no está saneado)."
+    metadata:
+      cwe: "CWE-79"
+      titulo: "Escritura directa en innerHTML"
+      categoria: "INYECCION"
+      mitigacion: "Usar textContent o sanear el HTML (DOMPurify) antes de insertarlo."
+    patterns:
+      - pattern-regex: '\.innerHTML\s*='
+
+  # ---------------- Python ----------------
+  - id: py-subprocess-shell
+    languages: [python]
+    severity: WARNING
+    message: "Ejecución de comando con shell=True (riesgo de inyección de comandos)."
+    metadata:
+      cwe: "CWE-78"
+      titulo: "Ejecución de comando con shell=True"
+      categoria: "INYECCION"
+      mitigacion: "Evitar shell=True; pasar argumentos como lista."
+    patterns:
+      - pattern-regex: 'subprocess\.(run|call|Popen|check_output)\([^)]*shell\s*=\s*True'

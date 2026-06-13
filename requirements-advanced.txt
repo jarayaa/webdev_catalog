@@ -1,0 +1,10 @@
+# Análisis avanzado (OPCIONAL): motores SAST de código abierto.
+# Instálalo para robustecer el análisis con detección multi-motor.
+#   pip install -r requirements-advanced.txt
+#
+# La aplicación funciona sin estos paquetes; si están presentes, se autodetectan
+# y sus hallazgos se integran y corroboran con el motor propio.
+
+semgrep>=1.60          # SAST multi-lenguaje (usa el ruleset local semgrep_rules.yml, sin red)
+detect-secrets>=1.4    # detección de secretos por entropía/plugins (Yelp)
+bandit>=1.7            # SAST específico de Python
