@@ -4,3 +4,5 @@ catalog.db
 catalog.db-wal
 catalog.db-shm
 config.json
+.claude/
+.env
