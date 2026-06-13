@@ -1,0 +1,141 @@
+<svg viewBox="0 0 900 580" xmlns="http://www.w3.org/2000/svg" font-family="'IBM Plex Mono', 'Courier New', monospace" role="img">
+  <title>WebDev Catalog — auditoría de package.json</title>
+  <desc>Panel de auditoría mostrando el análisis de dependencias npm con CVEs, desfase de versiones y veredicto.</desc>
+
+  <!-- Background -->
+  <rect width="900" height="580" fill="#0d1117" rx="8"/>
+
+  <!-- Top nav bar -->
+  <rect width="900" height="44" fill="#161b22" rx="8"/>
+  <rect y="22" width="900" height="22" fill="#161b22"/>
+  <rect x="1" y="1" width="898" height="42" fill="none" stroke="#30363d" stroke-width="0.5" rx="7"/>
+  <text x="16" y="27" font-size="12" fill="#58a6ff" font-weight="bold">WebDev</text>
+  <text x="73" y="27" font-size="12" fill="#e6edf3"> Software Catalog</text>
+
+  <!-- Nav tabs -->
+  <rect x="0" y="44" width="900" height="38" fill="#161b22"/>
+  <rect x="0" y="82" width="900" height="1" fill="#30363d"/>
+  <text x="16" y="68" font-size="11" fill="#8b949e">catálogo</text>
+  <rect x="86" y="52" width="80" height="24" fill="#1f6feb" rx="4"/>
+  <text x="126" y="68" font-size="11" fill="#fff" text-anchor="middle">auditoría</text>
+  <text x="180" y="68" font-size="11" fill="#8b949e">análisis código</text>
+  <text x="286" y="68" font-size="11" fill="#8b949e">historial</text>
+
+  <!-- Section header -->
+  <rect x="0" y="83" width="900" height="36" fill="#0d1117"/>
+  <text x="16" y="108" font-size="13" fill="#e6edf3" font-weight="bold">// QA · auditar package.json</text>
+  <text x="280" y="108" font-size="10" fill="#8b949e">Analiza dependencias npm, CVEs y cumplimiento (Ley 21.459)</text>
+
+  <!-- Upload panel -->
+  <rect x="12" y="126" width="876" height="72" fill="#161b22" rx="6" stroke="#30363d" stroke-width="0.5" stroke-dasharray="4,3"/>
+  <text x="450" y="152" font-size="11" fill="#8b949e" text-anchor="middle">Arrastra tu package.json aquí o</text>
+  <rect x="380" y="160" width="140" height="22" fill="#1f6feb" rx="4"/>
+  <text x="450" y="175" font-size="10" fill="#fff" text-anchor="middle">seleccionar archivo</text>
+  <text x="280" y="192" font-size="9" fill="#8b949e">También acepta build.gradle / build.gradle.kts para proyectos Android</text>
+  <text x="660" y="192" font-size="9" fill="#8b949e" text-anchor="end">libs.versions.toml (opcional) ▸</text>
+
+  <!-- Verdict banner — OBSERVADO -->
+  <rect x="12" y="208" width="876" height="50" fill="#3b2f00" rx="6" stroke="#d29922" stroke-width="1"/>
+  <text x="28" y="228" font-size="14" fill="#d29922" font-weight="bold">⚠  OBSERVADO</text>
+  <text x="28" y="247" font-size="10" fill="#d29922">3 dependencias con CVE · 5 desactualizadas (2 con major atrás) · 0 legales detectadas</text>
+  <rect x="760" y="220" width="116" height="26" fill="#21262d" rx="4" stroke="#30363d" stroke-width="0.5"/>
+  <text x="818" y="237" font-size="10" fill="#e6edf3" text-anchor="middle">exportar CSV ↓</text>
+
+  <!-- Action buttons -->
+  <rect x="12" y="268" width="130" height="24" fill="#21262d" rx="4" stroke="#30363d" stroke-width="0.5"/>
+  <text x="77" y="283" font-size="10" fill="#e6edf3" text-anchor="middle">📄 generar reporte IA</text>
+  <rect x="152" y="268" width="60" height="24" fill="#21262d" rx="4" stroke="#30363d" stroke-width="0.5"/>
+  <text x="182" y="283" font-size="10" fill="#e6edf3" text-anchor="middle">DOCX</text>
+  <rect x="222" y="268" width="50" height="24" fill="#21262d" rx="4" stroke="#30363d" stroke-width="0.5"/>
+  <text x="247" y="283" font-size="10" fill="#e6edf3" text-anchor="middle">PDF</text>
+  <rect x="282" y="268" width="40" height="24" fill="#21262d" rx="4" stroke="#30363d" stroke-width="0.5"/>
+  <text x="302" y="283" font-size="10" fill="#e6edf3" text-anchor="middle">MD</text>
+
+  <!-- Table header -->
+  <rect x="12" y="300" width="876" height="26" fill="#161b22" rx="4"/>
+  <text x="28" y="317" font-size="9" fill="#8b949e" font-weight="bold">PAQUETE</text>
+  <text x="200" y="317" font-size="9" fill="#8b949e" font-weight="bold">DECLARADA</text>
+  <text x="290" y="317" font-size="9" fill="#8b949e" font-weight="bold">INSTALADA</text>
+  <text x="380" y="317" font-size="9" fill="#8b949e" font-weight="bold">ÚLTIMA (npm)</text>
+  <text x="480" y="317" font-size="9" fill="#8b949e" font-weight="bold">DESFASE</text>
+  <text x="570" y="317" font-size="9" fill="#8b949e" font-weight="bold">CVEs</text>
+  <text x="640" y="317" font-size="9" fill="#8b949e" font-weight="bold">EOL/LEGAL</text>
+  <rect x="12" y="326" width="876" height="0.5" fill="#30363d"/>
+
+  <!-- Row 1 — lodash -->
+  <rect x="12" y="327" width="876" height="34" fill="#0d1117"/>
+  <text x="28" y="342" font-size="10" fill="#e6edf3">lodash</text>
+  <text x="28" y="354" font-size="8" fill="#8b949e">deps / prod</text>
+  <text x="200" y="347" font-size="10" fill="#8b949e">^4.17.11</text>
+  <text x="290" y="347" font-size="10" fill="#e6edf3">4.17.11</text>
+  <text x="380" y="347" font-size="10" fill="#e6edf3">4.17.21</text>
+  <rect x="480" y="337" width="50" height="16" fill="#3b2f00" rx="8"/>
+  <text x="505" y="349" font-size="8" fill="#d29922" text-anchor="middle">patch</text>
+  <rect x="570" y="337" width="20" height="16" fill="#4a1f1f" rx="3"/>
+  <text x="580" y="349" font-size="9" fill="#f85149" text-anchor="middle">2</text>
+  <text x="640" y="347" font-size="9" fill="#8b949e">—</text>
+  <rect x="12" y="361" width="876" height="0.5" fill="#21262d"/>
+
+  <!-- Row 2 — axios -->
+  <rect x="12" y="362" width="876" height="34" fill="#0f1419"/>
+  <text x="28" y="377" font-size="10" fill="#e6edf3">axios</text>
+  <text x="28" y="389" font-size="8" fill="#8b949e">deps / prod</text>
+  <text x="200" y="383" font-size="10" fill="#8b949e">^0.21.1</text>
+  <text x="290" y="383" font-size="10" fill="#e6edf3">0.21.4</text>
+  <text x="380" y="383" font-size="10" fill="#e6edf3">1.9.0</text>
+  <rect x="480" y="373" width="50" height="16" fill="#4a1f1f" rx="8"/>
+  <text x="505" y="385" font-size="8" fill="#f85149" text-anchor="middle">major</text>
+  <rect x="570" y="373" width="20" height="16" fill="#4a1f1f" rx="3"/>
+  <text x="580" y="385" font-size="9" fill="#f85149" text-anchor="middle">1</text>
+  <text x="640" y="383" font-size="9" fill="#8b949e">—</text>
+  <rect x="12" y="396" width="876" height="0.5" fill="#21262d"/>
+
+  <!-- Row 3 — express -->
+  <rect x="12" y="397" width="876" height="34" fill="#0d1117"/>
+  <text x="28" y="412" font-size="10" fill="#e6edf3">express</text>
+  <text x="28" y="424" font-size="8" fill="#8b949e">deps / prod</text>
+  <text x="200" y="418" font-size="10" fill="#8b949e">^4.18.0</text>
+  <text x="290" y="418" font-size="10" fill="#e6edf3">4.21.2</text>
+  <text x="380" y="418" font-size="10" fill="#e6edf3">5.1.0</text>
+  <rect x="480" y="408" width="50" height="16" fill="#4a1f1f" rx="8"/>
+  <text x="505" y="420" font-size="8" fill="#f85149" text-anchor="middle">major</text>
+  <rect x="570" y="408" width="20" height="16" fill="#21262d" rx="3"/>
+  <text x="580" y="420" font-size="9" fill="#8b949e" text-anchor="middle">0</text>
+  <text x="640" y="418" font-size="9" fill="#8b949e">—</text>
+  <rect x="12" y="431" width="876" height="0.5" fill="#21262d"/>
+
+  <!-- Row 4 — moment -->
+  <rect x="12" y="432" width="876" height="34" fill="#0f1419"/>
+  <text x="28" y="447" font-size="10" fill="#e6edf3">moment</text>
+  <text x="28" y="459" font-size="8" fill="#8b949e">deps / prod</text>
+  <text x="200" y="453" font-size="10" fill="#8b949e">^2.29.4</text>
+  <text x="290" y="453" font-size="10" fill="#e6edf3">2.30.1</text>
+  <text x="380" y="453" font-size="10" fill="#e6edf3">2.30.1</text>
+  <rect x="480" y="443" width="50" height="16" fill="#1a4a1f" rx="8"/>
+  <text x="505" y="455" font-size="8" fill="#3fb950" text-anchor="middle">al día</text>
+  <rect x="570" y="443" width="20" height="16" fill="#21262d" rx="3"/>
+  <text x="580" y="455" font-size="9" fill="#8b949e" text-anchor="middle">0</text>
+  <rect x="640" y="443" width="76" height="16" fill="#3b2f00" rx="3"/>
+  <text x="678" y="455" font-size="8" fill="#d29922" text-anchor="middle">deprecated ⚠</text>
+  <rect x="12" y="466" width="876" height="0.5" fill="#21262d"/>
+
+  <!-- Row 5 — chilean-rutify -->
+  <rect x="12" y="467" width="876" height="34" fill="#0d1117"/>
+  <text x="28" y="482" font-size="10" fill="#e6edf3">chilean-rutify</text>
+  <text x="28" y="494" font-size="8" fill="#8b949e">deps / prod</text>
+  <text x="200" y="488" font-size="10" fill="#8b949e">^1.0.0</text>
+  <text x="290" y="488" font-size="10" fill="#e6edf3">1.0.2</text>
+  <text x="380" y="488" font-size="10" fill="#e6edf3">1.0.2</text>
+  <rect x="480" y="478" width="50" height="16" fill="#1a4a1f" rx="8"/>
+  <text x="505" y="490" font-size="8" fill="#3fb950" text-anchor="middle">al día</text>
+  <rect x="570" y="478" width="20" height="16" fill="#21262d" rx="3"/>
+  <text x="580" y="490" font-size="9" fill="#8b949e" text-anchor="middle">0</text>
+  <rect x="640" y="478" width="96" height="16" fill="#3b2f00" rx="3"/>
+  <text x="688" y="490" font-size="8" fill="#d29922" text-anchor="middle">legal: medio (19.628)</text>
+
+  <!-- Footer -->
+  <rect x="0" y="550" width="900" height="30" fill="#161b22"/>
+  <rect x="0" y="550" width="900" height="0.5" fill="#30363d"/>
+  <text x="16" y="569" font-size="9" fill="#8b949e">5 dependencias analizadas · OSV batch query · npm registry · cumplimiento Ley 21.459 / 19.628</text>
+  <text x="840" y="569" font-size="9" fill="#8b949e" text-anchor="end">v2.0 · local</text>
+</svg>

@@ -1,0 +1,114 @@
+<svg viewBox="0 0 900 580" xmlns="http://www.w3.org/2000/svg" font-family="'IBM Plex Mono', 'Courier New', monospace" role="img">
+  <title>WebDev Catalog — reporte de riesgo generado con IA</title>
+  <desc>Vista del reporte de riesgo de dependencias generado con Claude, con secciones estructuradas y botones de exportación.</desc>
+
+  <!-- Background -->
+  <rect width="900" height="580" fill="#0d1117" rx="8"/>
+
+  <!-- Top nav bar -->
+  <rect width="900" height="44" fill="#161b22" rx="8"/>
+  <rect y="22" width="900" height="22" fill="#161b22"/>
+  <rect x="1" y="1" width="898" height="42" fill="none" stroke="#30363d" stroke-width="0.5" rx="7"/>
+  <text x="16" y="27" font-size="12" fill="#58a6ff" font-weight="bold">WebDev</text>
+  <text x="73" y="27" font-size="12" fill="#e6edf3"> Software Catalog</text>
+
+  <!-- Nav tabs -->
+  <rect x="0" y="44" width="900" height="38" fill="#161b22"/>
+  <rect x="0" y="82" width="900" height="1" fill="#30363d"/>
+  <text x="16" y="68" font-size="11" fill="#8b949e">catálogo</text>
+  <rect x="86" y="52" width="80" height="24" fill="#1f6feb" rx="4"/>
+  <text x="126" y="68" font-size="11" fill="#fff" text-anchor="middle">auditoría</text>
+  <text x="180" y="68" font-size="11" fill="#8b949e">análisis código</text>
+  <text x="286" y="68" font-size="11" fill="#8b949e">historial</text>
+
+  <!-- Report header -->
+  <rect x="0" y="83" width="900" height="54" fill="#0d1420"/>
+  <rect x="0" y="137" width="900" height="0.5" fill="#30363d"/>
+  <text x="16" y="102" font-size="13" fill="#58a6ff" font-weight="bold">📄 Reporte de Riesgo de Dependencias</text>
+  <text x="16" y="118" font-size="10" fill="#8b949e">mi-proyecto-web · package.json · SHA-256: a3f8c2... · 2026-06-13 14:32 · Solicitante: Jaime A.</text>
+
+  <!-- AI badge -->
+  <rect x="680" y="90" width="94" height="18" fill="#1f4068" rx="9"/>
+  <text x="727" y="103" font-size="8" fill="#58a6ff" text-anchor="middle">✦ Claude Sonnet 4.6</text>
+  <rect x="782" y="90" width="100" height="18" fill="#1a4a1f" rx="9"/>
+  <text x="832" y="103" font-size="8" fill="#3fb950" text-anchor="middle">IA habilitada ●</text>
+
+  <!-- Export buttons -->
+  <rect x="12" y="146" width="876" height="30" fill="#161b22" rx="4" stroke="#30363d" stroke-width="0.5"/>
+  <text x="28" y="164" font-size="10" fill="#8b949e">Descargar:</text>
+  <rect x="110" y="151" width="50" height="20" fill="#21262d" rx="3"/>
+  <text x="135" y="165" font-size="10" fill="#e6edf3" text-anchor="middle">PDF</text>
+  <rect x="170" y="151" width="60" height="20" fill="#21262d" rx="3"/>
+  <text x="200" y="165" font-size="10" fill="#e6edf3" text-anchor="middle">DOCX</text>
+  <rect x="240" y="151" width="40" height="20" fill="#21262d" rx="3"/>
+  <text x="260" y="165" font-size="10" fill="#e6edf3" text-anchor="middle">MD</text>
+  <rect x="290" y="151" width="40" height="20" fill="#21262d" rx="3"/>
+  <text x="310" y="165" font-size="10" fill="#e6edf3" text-anchor="middle">TXT</text>
+  <rect x="340" y="151" width="40" height="20" fill="#21262d" rx="3"/>
+  <text x="360" y="165" font-size="10" fill="#e6edf3" text-anchor="middle">CSV</text>
+
+  <!-- Verdict pill -->
+  <rect x="730" y="151" width="88" height="20" fill="#3b2f00" rx="10" stroke="#d29922" stroke-width="0.5"/>
+  <text x="774" y="164" font-size="9" fill="#d29922" text-anchor="middle">⚠ OBSERVADO</text>
+  <rect x="826" y="151" width="60" height="20" fill="#21262d" rx="3"/>
+  <text x="856" y="165" font-size="9" fill="#8b949e" text-anchor="middle">nueva auditoría</text>
+
+  <!-- Section: Análisis General -->
+  <rect x="12" y="184" width="876" height="24" fill="#161b22" rx="3"/>
+  <text x="28" y="200" font-size="11" fill="#e6edf3" font-weight="bold">1. Análisis General</text>
+  <text x="860" y="200" font-size="9" fill="#58a6ff" text-anchor="end">generado con IA</text>
+
+  <rect x="12" y="210" width="876" height="56" fill="#0d1117" rx="3" stroke="#21262d" stroke-width="0.5"/>
+  <text x="28" y="226" font-size="9" fill="#e6edf3">El proyecto presenta un nivel de riesgo OBSERVADO. Se detectaron 3 dependencias con CVEs conocidos y</text>
+  <text x="28" y="240" font-size="9" fill="#e6edf3">2 librerías con desfase de versión mayor. La dependencia crítica es lodash (CVE-2021-23337, CVSS 7.2).</text>
+  <text x="28" y="254" font-size="9" fill="#8b949e">Recomendación prioritaria: actualizar lodash a ≥4.17.21, migrar axios a v1.x y evaluar moment.js →</text>
+  <text x="28" y="262" font-size="9" fill="#8b949e">alternativas activas (date-fns, Luxon). El modelo de riesgo es determinista; la redacción usa Claude.</text>
+
+  <!-- Section: Análisis Técnico -->
+  <rect x="12" y="274" width="876" height="24" fill="#161b22" rx="3"/>
+  <text x="28" y="290" font-size="11" fill="#e6edf3" font-weight="bold">2. Análisis Técnico por Dependencia</text>
+
+  <!-- Dep item 1 -->
+  <rect x="12" y="300" width="876" height="60" fill="#0d1117" stroke="#21262d" stroke-width="0.5"/>
+  <rect x="12" y="300" width="4" height="60" fill="#f85149"/>
+  <text x="28" y="316" font-size="10" fill="#e6edf3" font-weight="bold">lodash  4.17.11</text>
+  <rect x="140" y="306" width="56" height="16" fill="#4a1f1f" rx="8"/>
+  <text x="168" y="318" font-size="8" fill="#f85149" text-anchor="middle">ALTO</text>
+  <text x="210" y="316" font-size="9" fill="#8b949e">patch atrás · 2 CVEs</text>
+  <text x="28" y="332" font-size="8" fill="#8b949e">CVE-2021-23337 (CVSS 7.2 · Command Injection) · CVE-2020-28500 (CVSS 5.3 · ReDoS)</text>
+  <text x="28" y="347" font-size="8" fill="#8b949e">Mitigación: actualizar a lodash@4.17.21 (patch disponible). Sin breaking changes.</text>
+
+  <!-- Dep item 2 -->
+  <rect x="12" y="360" width="876" height="52" fill="#0f1419" stroke="#21262d" stroke-width="0.5"/>
+  <rect x="12" y="360" width="4" height="52" fill="#d29922"/>
+  <text x="28" y="376" font-size="10" fill="#e6edf3" font-weight="bold">axios  0.21.4</text>
+  <rect x="120" y="366" width="56" height="16" fill="#3b2f00" rx="8"/>
+  <text x="148" y="378" font-size="8" fill="#d29922" text-anchor="middle">MEDIO</text>
+  <text x="188" y="376" font-size="9" fill="#8b949e">major atrás · 1 CVE</text>
+  <text x="28" y="392" font-size="8" fill="#8b949e">CVE-2023-45857 (CSRF via header injection). Actualizar a axios@1.x con breaking changes menores.</text>
+  <text x="28" y="404" font-size="8" fill="#8b949e">Mitigación: migrar a v1.x; revisar instancias que usen withCredentials.</text>
+
+  <!-- Dep item 3 -->
+  <rect x="12" y="412" width="876" height="42" fill="#0d1117" stroke="#21262d" stroke-width="0.5"/>
+  <rect x="12" y="412" width="4" height="42" fill="#d29922"/>
+  <text x="28" y="428" font-size="10" fill="#e6edf3" font-weight="bold">moment  2.30.1</text>
+  <rect x="140" y="418" width="56" height="16" fill="#3b2f00" rx="8"/>
+  <text x="168" y="430" font-size="8" fill="#d29922" text-anchor="middle">MEDIO</text>
+  <text x="210" y="428" font-size="9" fill="#8b949e">deprecated — sin CVE</text>
+  <text x="28" y="444" font-size="8" fill="#8b949e">Librería en modo legacy. Mitigación: migrar a date-fns@3 o Luxon para reducir bundle size y CVE exposure.</text>
+
+  <!-- Section: Conclusión -->
+  <rect x="12" y="462" width="876" height="24" fill="#161b22" rx="3"/>
+  <text x="28" y="478" font-size="11" fill="#e6edf3" font-weight="bold">3. Conclusión General</text>
+  <text x="860" y="478" font-size="9" fill="#58a6ff" text-anchor="end">generado con IA</text>
+
+  <rect x="12" y="488" width="876" height="40" fill="#0d1420" rx="3" stroke="#1f6feb" stroke-width="0.5"/>
+  <text x="28" y="504" font-size="9" fill="#e6edf3">Se RECOMIENDA OBSERVAR este build antes de aprobar para producción. Acciones prioritarias:</text>
+  <text x="28" y="520" font-size="9" fill="#8b949e">1) actualizar lodash  2) migrar axios a v1.x  3) evaluar reemplazo de moment.js  4) revisar momento legal 19.628</text>
+
+  <!-- Footer -->
+  <rect x="0" y="550" width="900" height="30" fill="#161b22"/>
+  <rect x="0" y="550" width="900" height="0.5" fill="#30363d"/>
+  <text x="16" y="569" font-size="9" fill="#8b949e">Reporte generado con Claude · Modelo de riesgo local determinista · No constituye certificación ni asesoría legal</text>
+  <text x="840" y="569" font-size="9" fill="#8b949e" text-anchor="end">v2.0 · local</text>
+</svg>

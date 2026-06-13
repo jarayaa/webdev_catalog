@@ -1,368 +1,297 @@
 # WebDev Software Catalog
 
-Dashboard **independiente** que inventaría productos y versiones de software
-existentes en internet, orientado al desarrollo de sitios web: lenguajes y
-runtimes, servidores web, bases de datos, frameworks backend/frontend, CMS,
-etc. — con sus ciclos de versión, fechas de fin de soporte (EOL) y CVEs
-conocidos.
+Dashboard de inventario y auditoría de software orientado al stack de desarrollo web. Combina ciclos de vida de versiones (EOL), CVEs en vivo y análisis estático de código fuente con cumplimiento de la normativa chilena de Transformación Digital del Estado.
 
-Fuentes (en vivo, con caché local en SQLite):
-- **endoflife.date** — productos, versiones, fechas de release/EOL/soporte, LTS.
-- **OSV.dev** — CVEs por producto/versión, donde existe mapeo de ecosistema.
+> **Herramienta de uso local.** No requiere servicios en la nube ni suscripciones (salvo la API de Anthropic, opcional para redacción IA de reportes).
 
-Es un proyecto autónomo: no depende de ninguna otra aplicación.
+---
+
+## Capturas de pantalla
+
+### Catálogo de software
+![Catálogo principal](docs/screenshots/catalog.svg)
+*Vista principal: 214+ productos web con versiones, estado EOL, categoría y CVEs. Datos en vivo desde endoflife.date, npm registry y OSV.dev.*
+
+### Auditoría de dependencias (package.json / build.gradle)
+![Auditoría de dependencias](docs/screenshots/audit.svg)
+*Análisis de package.json o build.gradle con veredicto QA, desfase de versiones, CVEs por dependencia y cumplimiento legal (Ley 21.459 / 19.628).*
+
+### Análisis estático de código (SAST)
+![Análisis SAST](docs/screenshots/codescan.svg)
+*SAST multicapa: motor propio + taint analysis + clasificador ML + Semgrep/Bandit/detect-secrets (opcional). Hallazgos mapeados a Decretos 7/9/10/11 y DS83/2004.*
+
+### Reporte de riesgo con IA
+![Reporte con IA](docs/screenshots/report.svg)
+*Reporte estructurado generado con Claude (Anthropic). Incluye análisis general, técnico por dependencia y conclusión exportable en PDF, DOCX, MD, TXT y CSV.*
+
+---
+
+## Características principales
+
+| Módulo | Descripción |
+|--------|-------------|
+| **Catálogo** | 214+ productos web (lenguajes, runtimes, servidores, DB, frameworks, CMS, librerías JS) con versiones, EOL, LTS y CVEs |
+| **Auditoría npm** | package.json → desfase, CVEs (OSV batch), veredicto QA, exportación CSV/PDF/DOCX |
+| **Auditoría Gradle** | build.gradle / build.gradle.kts + Android SDK/AGP → Maven Central, Google Maven, OSV |
+| **SAST** | Análisis de código fuente (.zip/.7z/.rar) con motor propio + taint + ML + motores externos opcionales |
+| **Cumplimiento** | Marco normativo chileno: Dec. 7/9/10/11, DS83/2004, Ley 19.628, Ley 21.459 |
+| **Reportes IA** | Claude redacta análisis narrativo; modelo de riesgo determinista siempre disponible sin API key |
+| **Exportadores** | PDF (ReportLab), DOCX (python-docx), Markdown, TXT, CSV — 100% server-side |
+| **Historial** | Auditorías guardadas en SQLite local con hash SHA-256, acceso a reporte y borrado individual |
+
+---
 
 ## Requisitos
-- Python 3.10 o superior.
+
+- **Python 3.10+** (probado con 3.14 en Windows 11)
+- Acceso de red a: `endoflife.date`, `api.osv.dev`, `registry.npmjs.org`, `repo1.maven.org`
+- Opcional: clave Anthropic para reportes redactados con IA
+
+---
 
 ## Instalación
+
 ```bash
+# 1. Clonar el repositorio
+git clone https://github.com/jarayaa/webdev_catalog.git
+cd webdev_catalog
+
+# 2. Instalar dependencias base
 pip install -r requirements.txt
-# (en red corporativa con proxy:)
-# pip install --proxy http://HOST:PUERTO -r requirements.txt
+
+# 3. (Opcional) Motores SAST avanzados
+pip install -r requirements-advanced.txt
+
+# 4. Configurar variables de entorno
+copy .env.example .env        # Windows
+# cp .env.example .env        # macOS / Linux
+# Edita .env y agrega ANTHROPIC_API_KEY si quieres reportes con IA
 ```
+
+En redes corporativas con proxy o CA de inspección TLS (Zscaler, etc.):
+
+```bash
+pip install --proxy http://HOST:PUERTO -r requirements.txt
+# truststore ya está en requirements.txt — usa el almacén de certificados del SO automáticamente
+```
+
+---
 
 ## Uso
+
 ```bash
+# Desarrollo
+python app.py
+# → http://127.0.0.1:5001
+
+# Producción (Windows, recomendado)
+waitress-serve --threads=16 --port=5001 app:app
+```
+
+En el primer arranque el catálogo se descarga automáticamente. El botón **↻ actualizar catálogo** refresca los datos desde internet.
+
+### Con autenticación (entorno compartido)
+
+```bash
+# Generar token
+python -c "import secrets; print(secrets.token_hex(32))"
+
+# Exportar antes de arrancar
+set WEBDEV_AUTH_TOKEN=<token>          # Windows cmd
+$env:WEBDEV_AUTH_TOKEN = "<token>"    # PowerShell
+export WEBDEV_AUTH_TOKEN=<token>      # bash
+
 python app.py
 ```
-Abre http://127.0.0.1:5001
 
-En el primer arranque descarga el catálogo automáticamente. Botón
-**"↻ actualizar catálogo"** para refrescar desde internet cuando quieras.
+Todas las rutas `/api/*` exigirán `Authorization: Bearer <token>` o `X-Auth-Token: <token>`. La interfaz web lo pide automáticamente al cargar.
 
-## Proxy / CA corporativa
-- Usa el almacén de certificados del SISTEMA OPERATIVO (vía `truststore`), así
-  que las CA de inspección TLS (Zscaler, etc.) ya confiadas por Windows
-  funcionan sin configuración extra.
-- Si necesitas un proxy, ponlo en el panel **"// conexión"** de la página
-  (se guarda en `config.json`), o exporta `HTTPS_PROXY` antes de arrancar.
-- Botón **"probar conexión"** para diagnosticar (SSL/CA, proxy, timeout).
+---
 
-## Archivos generados
-- `catalog.db` — caché local del catálogo (SQLite). Borrable; se regenera.
-- `config.json` — proxy guardado.
+## Variables de entorno
 
-## Personalizar qué productos aparecen
-Edita `catalog_data.py`:
-- `WEBDEV_CATEGORIES`: slug de endoflife.date → categoría.
-- `OSV_MAP`: slug → (ecosistema, paquete) para habilitar la búsqueda de CVEs.
+| Variable | Requerida | Descripción |
+|----------|-----------|-------------|
+| `ANTHROPIC_API_KEY` | No | Clave de API Anthropic para redacción IA de reportes. Tiene precedencia sobre `config.json`. |
+| `WEBDEV_AUTH_TOKEN` | No | Token Bearer para proteger la interfaz en entornos compartidos. Sin él, sin autenticación. |
+| `HTTPS_PROXY` / `HTTP_PROXY` | No | Proxy corporativo. Alternativa al panel de configuración de la UI. |
+| `WEBDEV_MAX_JSON_BYTES` | No | Límite de respuesta JSON de APIs externas (bytes). Por defecto: `8388608` (8 MB). |
+| `WEBDEV_MAX_DEPS` | No | Máximo de dependencias por auditoría. Por defecto: `2000`. |
+| `WEBDEV_MAX_UPLOAD_BYTES` | No | Tamaño máximo de archivo subido. Por defecto: `2097152` (2 MB). |
+| `WEBDEV_MAX_WORKERS` | No | Hilos de auditoría paralela. Por defecto: `8`. |
 
+Ver [`.env.example`](.env.example) para referencia completa.
+
+---
+
+## Estructura del proyecto
+
+```
+webdev_catalog/
+├── app.py                  # Servidor Flask (rutas, seguridad, rate limiting, CSRF)
+├── net.py                  # Cliente HTTP con truststore, reintentos, caché TTL
+├── catalog_data.py         # Mapa de productos endoflife.date y librerías npm
+├── osv.py                  # Consultas OSV.dev (batch, caché)
+├── code_scan.py            # Motor SAST principal (patrones, CWE, norma)
+├── taint.py                # Análisis de flujo de datos intra-archivo
+├── ml_secrets.py           # Clasificador ML de verosimilitud de secretos
+├── sast_external.py        # Integración Semgrep / Bandit / detect-secrets
+├── compliance.py           # Marco normativo chileno (Decretos 7/9/10/11, DS83)
+├── regulatory.py           # Catálogo de controles auditables
+├── report.py               # Generación de reportes (estructura, secciones)
+├── exporters.py            # Exportadores PDF / DOCX / MD / TXT / CSV
+├── archive_extract.py      # Extracción segura (.zip/.7z/.rar) con anti-bomb/slip
+├── gradle_audit.py         # Parser Gradle + Maven Central + Google Maven
+├── android_platform.py     # Evaluación SDK/AGP de Android
+├── code_reason.py          # Razonamiento contextual sobre hallazgos
+├── semgrep_rules.yml       # Ruleset Semgrep local (sin red)
+├── requirements.txt        # Dependencias base
+├── requirements-advanced.txt # Motores SAST opcionales
+├── .env.example            # Plantilla de variables de entorno
+├── templates/index.html    # UI (single-page, IBM Plex Mono)
+├── static/
+│   ├── css/style.css
+│   └── js/app.js           # Fetch con CSRF automático, safeUrl, auth
+└── docs/screenshots/       # Mockups SVG para documentación
+```
+
+---
+
+## Seguridad
+
+### Medidas implementadas
+
+| Área | Control |
+|------|---------|
+| **Secretos** | `ANTHROPIC_API_KEY` en variable de entorno; `config.json` en `.gitignore` |
+| **CSRF** | Double-submit cookie (SameSite=Strict); validado en todos los POST/PUT/DELETE |
+| **Autenticación** | Bearer token opcional (`WEBDEV_AUTH_TOKEN`); comparación en tiempo constante |
+| **Rate limiting** | Flask-Limiter por IP: refresh 3/min, audit 30/min, report 10/min, codescan 5/min |
+| **Cabeceras HTTP** | CSP, HSTS, X-Frame-Options DENY, X-Content-Type-Options, Referrer-Policy, Permissions-Policy |
+| **Uploads** | `secure_filename`, límite de tamaño, defensas zip-slip / zip-bomb / symlink |
+| **Base de datos** | Consultas parametrizadas, WAL mode, `PRAGMA foreign_keys=ON`, `secure_delete=ON` |
+| **Red** | SSRF: esquema de proxy validado (http/https/socks4/socks5); TLS verificado con truststore |
+| **Respuestas** | Errores 500/413 en JSON sin trazas de pila; logging estructurado |
+| **Archivos** | Código extraído nunca ejecutado; directorio temporal aislado eliminado al terminar |
+
+### Archivos excluidos de git
+
+`config.json`, `catalog.db`, `catalog.db-wal`, `catalog.db-shm` están en `.gitignore` y **nunca se publican**.
+
+### SAST sobre el propio proyecto
+
+Este repositorio ha sido auditado con su propio motor SAST. No se detectaron secretos embebidos, SQL sin parametrizar ni TLS deshabilitado en el código fuente publicado.
+
+---
 
 ## Fuentes de datos
 
-Este catálogo combina **dos fuentes** para cubrir todo el stack web:
+| Fuente | Uso |
+|--------|-----|
+| [endoflife.date](https://endoflife.date) | Ciclos de vida de lenguajes, runtimes, servidores, DB, CMS |
+| [OSV.dev](https://osv.dev) | CVEs por ecosistema (npm, PyPI, Maven, Packagist) — consulta batch |
+| [npm registry](https://registry.npmjs.org) | Última versión, fecha de publicación, metadatos de librerías JS |
+| [Maven Central](https://search.maven.org) | Última versión de dependencias Java/Android |
+| [Google Maven](https://dl.google.com/dl/android/maven2) | androidx, AGP y librerías Google |
 
-1. **endoflife.date** — lenguajes, runtimes, servidores, bases de datos, CMS y
-   frameworks con ciclos de vida y fechas de fin de soporte (EOL).
-2. **registro npm** (registry.npmjs.org) — librerías JavaScript que endoflife.date
-   no cataloga (jQuery, jQuery UI, D3, Three.js, Plotly, Moment.js, SweetAlert2,
-   OWL Carousel, Swiper, FancyBox, GSAP, DataTables, Bootstrap Icons, Font Awesome,
-   Turf.js, MapTiler, Firebase, RxJS, Zone.js, etc.). Se agrupan por versión mayor
-   con su fecha de publicación; la mayor más reciente queda como "ok" y las
-   anteriores como "obsoleto" (superada). Las librerías no tienen EOL formal.
+---
 
-En ambos casos los CVEs se consultan en **OSV.dev** (ecosistema npm/PyPI/Packagist
-según corresponda).
+## Marco normativo (SAST)
 
-Para agregar más librerías, edita `NPM_LIBRARIES` en `catalog_data.py`
-(paquete npm → nombre y categoría). Para productos con EOL, edita
-`WEBDEV_CATEGORIES`.
+El análisis de código evalúa cumplimiento artículo a artículo de:
 
+- **Decreto 7/2023** — Norma Técnica de Seguridad (Ley 21.180): Identificar, Proteger, Detectar, Responder, Recuperar
+- **Decreto 9/2023** — Autenticación: OpenID Connect/OAuth 2.0, cifrado Bcrypt/Argon2, TLS 1.2+, trazabilidad en UTC
+- **Decreto 10/2023** — Documentos y Expedientes Electrónicos
+- **Decreto 11/2023** — Calidad y Funcionamiento de Plataformas
+- **DS 83/2004** — Seguridad del Documento Electrónico: Arts. 6, 26, 28, 29, 31-32
+- **Ley 19.628** — Protección de datos personales
+- **Ley 21.459** — Delitos informáticos
 
-## Auditar un package.json (QA)
+---
 
-En el panel **"// QA · auditar package.json"** puedes pegar o subir el
-`package.json` de un desarrollo. Por cada dependencia (prod, dev, peer, opcional)
-muestra:
+## Análisis avanzado (opcional)
 
-- versión **declarada** (el rango, ej. `^19.2.21`),
-- versión **instalada** que resuelve ese rango,
-- última versión en **npm** (con su fecha),
-- **desfase**: al día / patch / minor / **major**,
-- **CVEs** conocidos para la versión instalada (vía OSV).
-
-Arriba entrega un **veredicto** y conteos (desactualizadas, major atrás, con CVE),
-y puedes exportar el detalle a CSV. Pensado para revisar builds que pasan por QA.
-
+```bash
+pip install -r requirements-advanced.txt
+# Instala: semgrep · bandit · detect-secrets
+```
 
-## Reporte de riesgo con IA (Claude)
+Cuando están disponibles, se ejecutan automáticamente y sus hallazgos se integran al mismo esquema con CWE y norma. Si dos motores coinciden en el mismo punto, el hallazgo se marca como **corroborado** (mayor confianza) en vez de duplicarse.
 
-Tras auditar un `package.json`, el botón **"📄 generar reporte IA"** produce un
-reporte con esta estructura:
+---
 
-- **Análisis General**
-- **Análisis Técnico** (por aplicativo):
-  - aplicativo con su versión y grado de severidad de riesgo,
-  - riesgos conocidos (CVE/severidad, atraso de versión, EOL),
-  - precisión técnica (confianza del hallazgo y fuente de datos),
-  - medidas de mitigación recomendadas;
-- **Conclusión General** (veredicto QA + acciones prioritarias).
-
-Cómo funciona, en dos capas:
-
-1. **Modelo de riesgo local (determinista)**: calcula el nivel de riesgo por
-   dependencia y el veredicto a partir de datos duros (CVEs y severidad CVSS de
-   OSV, atraso de versión de npm). Siempre disponible, sin IA.
-2. **Redacción con IA (Claude)**: si configuras una API key de Anthropic en
-   **⚙ configurar IA**, el Análisis General y la Conclusión se redactan con
-   Claude, anclados en los hallazgos del paso 1 (con instrucción de NO inventar
-   CVEs ni versiones). Sin key, se usa una redacción por plantilla con los mismos
-   datos.
-
-La key se guarda localmente en `config.json` y se usa a través de tu proxy/CA;
-requiere acceso a `api.anthropic.com`. El modelo es configurable (por defecto
-`claude-sonnet-4-6`). El reporte se puede descargar en Markdown.
-
-
-## Exportar el reporte (DOCX / PDF / MD / TXT)
-
-Una vez generado el reporte, los botones **DOCX · PDF · MD · TXT** lo descargan
-en ese formato. Todos comparten la misma estructura (Análisis General, Técnico,
-Conclusión) e incluyen:
-
-- estilos, colores por nivel de riesgo, tablas y tipografías (DOCX y PDF);
-- **detalle expandido de cada CVE** (resumen, severidad, fechas, enlaces);
-- **URL oficial del desarrollador** (sitio, repositorio, página npm);
-- **referencia de EOL / ciclo de vida** (enlace a endoflife.date cuando aplica);
-- precisión técnica y medidas de mitigación por dependencia.
-
-La generación es 100% server-side en Python (python-docx, reportlab), sin
-dependencias del sistema, así que funciona en Windows tal cual.
-
-
-## Historial de auditorías
-
-La pestaña **"historial de auditorías"** registra cada `package.json` del que se
-generó un reporte, con columnas: fecha, nombre de archivo, **hash SHA-256**,
-nombre de la aplicación, versión (si venía en el JSON), veredicto, acceso a la
-**auditoría en ventana emergente** (botón 👁 ver) y **descarga del reporte** en
-PDF, DOCX, MD, TXT o CSV. Los registros se guardan en la base local
-(`catalog.db`, tabla `audits`) y pueden eliminarse individualmente.
-
-
-## Cumplimiento legal (Ley 21.459 / Ley 19.628)
-
-La auditoría cruza cada dependencia con la legislación chilena de delitos
-informáticos. Gradúa el riesgo legal según la evidencia:
-
-- **Medio (revisión):** validadores/formateadores de identificadores (p. ej.
-  `chilean-rutify`) — algoritmo público, no contienen datos; se revisa el
-  tratamiento de datos personales por la aplicación (Ley 19.628).
-- **Grave (alto):** paquetes de *consulta* de datos por identificador
-  ("rutificadores") — posibles fuentes ilícitas; se cita el Art. 6 (receptación
-  de datos informáticos).
-- **Gravísimo (crítico):** paquetes con evidencia de ser maliciosos (advisories
-  de malware en OSV) — Arts. 1, 2, 4, 7 y 8.
-
-Los hallazgos de nivel grave/gravísimo fuerzan el veredicto a RECHAZADO, se
-detallan en una sección "Análisis de Cumplimiento Legal" del reporte (en todos
-los formatos) aludiendo a los artículos correspondientes, y siempre en
-condicional con la advertencia de que no constituyen asesoría legal.
-
-
-## Análisis estático de código (SAST) y motor de cumplimiento normativo
-
-Sube el código fuente de una aplicación comprimido (`.zip`, `.7z` o `.rar`) en
-el panel **"análisis de código"**. La herramienta:
-
-1. **Extrae** el archivo en un directorio temporal aislado, con defensas contra
-   *zip-slip* y *zip-bomb* (límites de tamaño, número de archivos y ratio de
-   compresión). Nunca ejecuta el código.
-2. **Escanea** (SAST ligero por patrones, en una sola pasada por archivo) en
-   busca de secretos embebidos, criptografía débil, tráfico en texto claro,
-   validación TLS deshabilitada, SQL por concatenación, WebView inseguro,
-   permisos sensibles, logging de datos personales, modo debug, respaldo y
-   componentes exportados, licencia ausente, etc. Cada hallazgo trae severidad,
-   evidencia enmascarada, la cláusula de la Guía SEGPRES, la norma legal, el
-   identificador **CWE** y la lista de **controles normativos** afectados.
-3. **Razona** sobre la evidencia (aprendizaje automático local y, si hay clave
-   configurada, modelo de lenguaje) para producir el resumen ejecutivo, el
-   nivel de riesgo agregado y los puntos calientes.
-4. **Evalúa el cumplimiento** contra un catálogo de **controles auditables**
-   (`regulatory.py`) derivados artículo por artículo de la normativa chilena de
-   Transformación Digital del Estado y seguridad del documento electrónico.
-
-### Marco normativo integrado
-
-El catálogo mapea los hallazgos del código a los siguientes instrumentos:
-
-- **Decreto 7/2023** — Norma Técnica de Seguridad de la Información y
-  Ciberseguridad (Ley 21.180). Estructura por las 5 funciones del marco
-  (Identificar, Proteger, Detectar, Responder, Recuperar).
-- **Decreto 9/2023** — Norma Técnica de Autenticación: OpenID Connect / OAuth
-  2.0 (Art. 6), cifrado de factores con Bcrypt/PBKDF2/SHA-3/Argon2 (Art. 6),
-  TLS 1.2+ (Art. 6), prevención de fuerza bruta (Art. 7), trazabilidad de
-  accesos en UTC (Art. 13) y protección de datos personales (Art. 14).
-- **Decreto 10/2023** — Documentos y Expedientes Electrónicos (integridad y
-  protección de los datos del expediente).
-- **Decreto 11/2023** — Calidad y Funcionamiento de las Plataformas (línea de
-  base de calidad, Plan de Mejora Continua, licenciamiento).
-- **DS 83/2004** — Seguridad y Confidencialidad del Documento Electrónico:
-  atributos esenciales (Art. 6), antimalware y cifrado (Art. 26), robustez de
-  identificadores (Art. 28), credenciales no en texto claro (Art. 29) y control
-  de acceso (Arts. 31-32).
-
-### Estados de los controles y veredicto
-
-Cada control recibe uno de cuatro estados: **cumple**, **no cumple**,
-**observado** o **no evaluable**. Los controles organizacionales (políticas,
-roles, diagnósticos, planes) que el análisis estático no puede verificar se
-reportan honestamente como *no evaluables*, indicando qué evidencia documental
-los acreditaría. El motor entrega una **matriz de conformidad por instrumento**,
-una **cobertura por función** del Decreto 7, el porcentaje de controles
-evaluables conformes y un **veredicto global** (CONFORME / CONFORME CON
-OBSERVACIONES / NO CONFORME).
-
-### Análisis técnico contextual y modelo de riesgo
-
-El informe separa el **análisis técnico** del **cumplimiento normativo/legal**.
-Cada observación técnica se desarrolla en el **contexto real de uso del código**
-(inteligencia local): se infiere el rol del archivo (gestión de credenciales,
-acceso a datos, manifiesto, comunicación de red, etc.), se localiza el constructo
-que contiene el hallazgo (clase/objeto o función/método) y se incluye un
-fragmento de código alrededor de la línea afectada (con los secretos
-enmascarados). Para cada observación se entrega: una descripción situada, una
-explicación en lenguaje llano para alta dirección, la ubicación con su rol y
-exposición, la evidencia en contexto, el **cálculo del nivel de riesgo** y una
-mitigación puntual referida a ese archivo.
-
-El nivel de riesgo se calcula como **impacto × probabilidad**, ambos en escala
-1-5 y con su justificación explícita:
-
-- **Impacto**: parte de la severidad intrínseca de la regla y se ajusta por el
-  rol del archivo (por ejemplo, un secreto en un gestor de credenciales pesa más
-  que en código de prueba).
-- **Probabilidad**: parte de la exposición (producción vs. prueba/ejemplo) y se
-  ajusta por la entropía del literal (un secreto de alta entropía es más
-  probablemente real), por si el defecto es alcanzable por un actor externo o
-  afecta la configuración global, y por la concentración de hallazgos en el
-  archivo (punto caliente).
-
-El producto (1-25) se mapea a **Crítico / Alto / Medio / Bajo / Informativo**.
-Así, una misma regla puede arrojar distinto nivel de riesgo según el contexto,
-lo que evita observaciones genéricas y hace auditable la justificación.
-
-El informe profesional exportable (DOCX / PDF / MD) incluye portada, resumen
-ejecutivo con veredicto, sección de conformidad normativa, panorama técnico,
-análisis técnico detallado por observación, marco normativo de referencia y
-anexo metodológico. El documento usa interlineado 1.0 sin espacio entre párrafos.
-
-### Análisis avanzado: multi-motor, flujo de datos y ML (opcional)
-
-El análisis propio se robustece con tres técnicas complementarias. Todas son
-**opcionales y se autodetectan**: si las herramientas no están instaladas, la
-aplicación funciona igual con su motor interno.
-
-1. **Motores SAST de código abierto.** Si están instalados, se ejecutan y sus
-   hallazgos se normalizan e integran al mismo esquema (con contexto y CWE):
-   - **Semgrep** (multi-lenguaje) con un **ruleset local** (`semgrep_rules.yml`)
-     que corre **sin red**, alineado a los controles normativos.
-   - **detect-secrets** (Yelp) para secretos por entropía/plugins.
-   - **Bandit** para código Python.
-   Cuando dos motores coinciden en el mismo punto, el hallazgo se marca como
-   **corroborado** (mayor confianza) en vez de duplicarse. Instálalos con:
-   `pip install -r requirements-advanced.txt`.
-2. **Análisis de flujo de datos (taint), intra-archivo.** Rastrea datos que
-   provienen de **fuentes** no confiables (entrada de usuario, intents,
-   parámetros de red) hasta **sumideros** peligrosos (consultas SQL, ejecución
-   de comandos, WebView, logs, rutas de archivo), con un salto de propagación
-   por asignaciones. Las rutas detectadas se reportan como observaciones de
-   primera clase (`TAINT-…`) y elevan la probabilidad/explotabilidad del
-   hallazgo. Aproxima el razonamiento de ejecución **sin ejecutar** el código.
-3. **Clasificador de verosimilitud de secretos (ML).** Una regresión logística
-   autocontenida estima la probabilidad de que un literal sea un secreto real
-   frente a un marcador de posición, ajustando la probabilidad del riesgo y
-   reduciendo falsos positivos.
-
-**Sobre pruebas dinámicas (DAST).** Por seguridad, la herramienta **nunca
-ejecuta** el código auditado. No se realiza DAST en sentido estricto (ejecución
-del sistema en marcha); el componente «dinámico» se cubre con el análisis de
-flujo de datos y el razonamiento de rutas de ataque asistido por IA. Para
-pruebas dinámicas completas se recomienda un proceso DAST dedicado, con la
-aplicación desplegada en un entorno controlado.
-
-El endpoint `POST /api/codescan` acepta `?ext=0` para desactivar el análisis
-avanzado (por defecto está activo) y `?ai=0` para desactivar el razonamiento por IA.
-
-> Es un **insumo** para la evaluación de QA y la auditoría de cumplimiento; no
-> constituye certificación de conformidad ni asesoría legal.
-
-
-## Encabezado del informe descargable
-
-El informe exportable (PDF/DOCX/MD/TXT/CSV) incluye en el título la fecha y hora
-de generación y una línea "Generado por:" con el nombre de la persona, que se
-solicita al presionar cualquier botón de exportación. El resultado se redacta
-como una RECOMENDACIÓN sobre el inventario de software (no "aprobado/rechazado"),
-entendido como un insumo para la evaluación final de QA.
-
-
-## Auditoría de proyectos Android/Gradle
-
-Además de `package.json` (npm), la herramienta audita `build.gradle.kts`,
-`build.gradle` y `settings.gradle.kts`. Detecta automáticamente el tipo de
-manifiesto. Para Gradle:
-
-- Extrae las dependencias `group:artifact:version` (DSL Kotlin o Groovy),
-  resuelve versiones interpoladas por variables y, opcionalmente, por
-  `libs.versions.toml` (puedes subirlo junto al archivo).
-- Resuelve la última versión publicada en **Maven Central** y **Google Maven**
-  (androidx / com.google.android.*).
-- Consulta CVEs en **OSV** (ecosistema Maven) y aplica el mismo análisis de
-  cumplimiento legal (Ley 21.459 / 19.628).
-- Las dependencias Maven detectadas se **incorporan al inventario** (catálogo) y
-  se actualizan en cada "actualizar catálogo".
-
-Requiere acceso de red a `repo1.maven.org`, `dl.google.com` y `api.osv.dev`
-(a través del proxy corporativo si corresponde). Sin conexión, igual reporta las
-dependencias y versiones declaradas.
-
-
-## Plataforma Android (SDK / AGP / Gradle)
-
-Al auditar un proyecto Gradle, la herramienta detecta y evalúa también:
-- **compileSdk / targetSdk / minSdk** contra los API levels de Android (referencia
-  al 2026: API 36 = Android 16). targetSdk por debajo del mínimo de Google Play se
-  marca como riesgo alto; compileSdk atrasado, medio; minSdk es informativo.
-- **Android Gradle Plugin (AGP)** y **Gradle** (este último desde
-  `gradle-wrapper.properties`, que puedes subir en el campo opcional), comparados
-  con la última versión conocida.
-
-Estos componentes aparecen en el reporte (sección plataforma) y se incorporan al
-inventario bajo la categoría "Android / Plataforma".
-
-
-## Plugins de Gradle
-
-Se detectan los plugins declarados en `build.gradle.kts`/`settings.gradle.kts`,
-tanto con versión explícita (`id("...") version "x"`) como por alias del catálogo
-(`alias(libs.plugins.x)`); estos últimos se resuelven si se sube
-`libs.versions.toml`. Aparecen en el reporte y en el inventario bajo
-"Android / Gradle (plugins)".
+## Personalización
 
+### Agregar productos con EOL
+
+Edita `WEBDEV_CATEGORIES` en `catalog_data.py`:
+
+```python
+WEBDEV_CATEGORIES = {
+    "mi-producto": "Mi Categoría",   # slug de endoflife.date → categoría
+    ...
+}
+```
+
+### Agregar librerías npm
+
+Edita `NPM_LIBRARIES` en `catalog_data.py`:
+
+```python
+NPM_LIBRARIES = {
+    "mi-libreria": ("Mi Librería", "Categoría"),
+    ...
+}
+```
+
+### Agregar mapeo CVE (OSV)
+
+Edita `OSV_MAP` en `catalog_data.py`:
+
+```python
+OSV_MAP = {
+    "mi-producto": ("npm", "mi-paquete"),   # ecosistema + nombre en OSV
+    ...
+}
+```
+
+---
 
 ## Rendimiento
 
-- Auditoría **paralela** (ThreadPoolExecutor, configurable con WEBDEV_MAX_WORKERS, por
-  defecto 8) en vez de secuencial: ~8× más rápida tras un proxy con latencia.
-- **OSV en lote** (`/v1/querybatch`): una sola petición para todas las dependencias,
-  más detalle solo de los CVE presentes (cacheado).
-- Metadata npm **liviana** (`/{pkg}/latest`, KB) en vez del documento completo (MB).
-- **Caché en memoria** (TTL) de metadata npm/Maven y detalle OSV; proxy/config
-  cacheados (sin leer disco por petición); pool de conexiones ampliado + reintentos.
-- Refresh del catálogo con descargas en paralelo (escritura SQLite serializada).
-- Frontend: filtros con *debounce* y `<select>` de categorías reconstruido solo si cambia.
+- Auditoría **paralela** (ThreadPoolExecutor, `WEBDEV_MAX_WORKERS=8`)
+- OSV en **lote** (`/v1/querybatch`): una petición para todas las dependencias
+- Caché en memoria con TTL para metadata npm/Maven, OSV y JSON de APIs externas
+- Pool de conexiones HTTP ampliado (24) con reintentos y backoff
+- Refresh del catálogo con descargas en paralelo
+- Frontend: debounce en filtros, `<select>` de categorías reconstruido solo si cambia
 
-## Endurecimiento (DevSecOps)
+---
 
-- **Límite de tamaño de petición** (`WEBDEV_MAX_UPLOAD_BYTES`, 2 MB) → 413 ante uploads enormes.
-- **Tope de dependencias por auditoría** (`WEBDEV_MAX_DEPS`, 2000) y de respuestas
-  de red (`WEBDEV_MAX_JSON_BYTES`, 8 MB) → previenen agotamiento de memoria.
-- **Cabeceras de seguridad**: CSP estricta, X-Frame-Options DENY, X-Content-Type-Options
-  nosniff, Referrer-Policy, Permissions-Policy.
-- **Manejo de errores** sin fuga de trazas (500/413 en JSON).
-- **TLS** verificado contra el almacén del SO (truststore) — compatible con CA corporativa.
-- **OSV en lotes acotados** (256) y regex de Gradle con tope de entrada (anti-ReDoS).
-- **SECRET_KEY** por entorno; dependencias con versión acotada.
-- Servir en producción tras proxy con `waitress-serve` (no el server de desarrollo).
+## Producción
+
+```bash
+# Windows (recomendado)
+waitress-serve --threads=16 --port=5001 app:app
+
+# Linux / macOS
+gunicorn -w 4 -b 0.0.0.0:5001 app:app
+```
+
+Sirve siempre detrás de un proxy inverso (nginx, Caddy) que gestione TLS hacia los clientes.
+
+---
+
+## Licencia
+
+MIT — ver [LICENSE](LICENSE) si existe, o usa libremente con atribución.
+
+---
+
+## Créditos
+
+- [endoflife.date](https://endoflife.date) — API pública de ciclos de vida
+- [OSV.dev](https://osv.dev) — Base de datos abierta de vulnerabilidades (Google)
+- [Anthropic Claude](https://anthropic.com) — Modelo de lenguaje para redacción de reportes
+- [Flask](https://flask.palletsprojects.com), [ReportLab](https://www.reportlab.com), [python-docx](https://python-docx.readthedocs.io), [truststore](https://github.com/sethmlarson/truststore)

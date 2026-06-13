@@ -1,0 +1,186 @@
+<svg viewBox="0 0 900 580" xmlns="http://www.w3.org/2000/svg" font-family="'IBM Plex Mono', 'Courier New', monospace" role="img">
+  <title>WebDev Catalog — vista principal del catálogo</title>
+  <desc>Captura de pantalla de la vista de catálogo mostrando productos web con versiones, estado EOL y CVEs.</desc>
+
+  <!-- Background -->
+  <rect width="900" height="580" fill="#0d1117" rx="8"/>
+
+  <!-- Top nav bar -->
+  <rect width="900" height="44" fill="#161b22" rx="8"/>
+  <rect y="22" width="900" height="22" fill="#161b22"/>
+  <rect x="1" y="1" width="898" height="42" fill="none" stroke="#30363d" stroke-width="0.5" rx="7"/>
+
+  <!-- Nav logo -->
+  <text x="16" y="27" font-size="12" fill="#58a6ff" font-weight="bold">WebDev</text>
+  <text x="73" y="27" font-size="12" fill="#e6edf3"> Software Catalog</text>
+
+  <!-- Nav tabs -->
+  <rect x="0" y="44" width="900" height="38" fill="#161b22"/>
+  <rect x="0" y="82" width="900" height="1" fill="#30363d"/>
+
+  <rect x="12" y="52" width="80" height="24" fill="#1f6feb" rx="4"/>
+  <text x="52" y="68" font-size="11" fill="#fff" text-anchor="middle">catálogo</text>
+
+  <text x="106" y="68" font-size="11" fill="#8b949e">auditoría</text>
+  <text x="176" y="68" font-size="11" fill="#8b949e">análisis código</text>
+  <text x="282" y="68" font-size="11" fill="#8b949e">historial</text>
+
+  <!-- Right nav actions -->
+  <rect x="752" y="54" width="128" height="22" fill="#21262d" rx="4" stroke="#30363d" stroke-width="0.5"/>
+  <text x="816" y="68" font-size="10" fill="#8b949e" text-anchor="middle">⚙ configurar IA</text>
+
+  <!-- Stats bar -->
+  <rect x="0" y="83" width="900" height="38" fill="#0d1117"/>
+  <rect x="12" y="94" width="90" height="20" fill="#161b22" rx="3" stroke="#30363d" stroke-width="0.5"/>
+  <text x="57" y="108" font-size="10" fill="#3fb950" text-anchor="middle">● 214 productos</text>
+
+  <rect x="112" y="94" width="110" height="20" fill="#161b22" rx="3" stroke="#30363d" stroke-width="0.5"/>
+  <text x="167" y="108" font-size="10" fill="#e6edf3" text-anchor="middle">1 842 versiones</text>
+
+  <rect x="232" y="94" width="80" height="20" fill="#161b22" rx="3" stroke="#30363d" stroke-width="0.5"/>
+  <text x="272" y="108" font-size="10" fill="#f85149" text-anchor="middle">38 EOL</text>
+
+  <rect x="322" y="94" width="90" height="20" fill="#161b22" rx="3" stroke="#30363d" stroke-width="0.5"/>
+  <text x="367" y="108" font-size="10" fill="#d29922" text-anchor="middle">127 con CVE</text>
+
+  <!-- Filter row -->
+  <rect x="0" y="121" width="900" height="34" fill="#0d1117"/>
+  <rect x="12" y="128" width="160" height="20" fill="#161b22" rx="3" stroke="#30363d" stroke-width="0.5"/>
+  <text x="20" y="142" font-size="10" fill="#8b949e">🔍 buscar producto...</text>
+  <rect x="182" y="128" width="120" height="20" fill="#161b22" rx="3" stroke="#30363d" stroke-width="0.5"/>
+  <text x="242" y="142" font-size="10" fill="#8b949e" text-anchor="middle">Todas las categorías ▾</text>
+  <rect x="312" y="128" width="90" height="20" fill="#161b22" rx="3" stroke="#30363d" stroke-width="0.5"/>
+  <text x="357" y="142" font-size="10" fill="#8b949e" text-anchor="middle">Todos los estados ▾</text>
+
+  <rect x="772" y="128" width="116" height="20" fill="#238636" rx="4"/>
+  <text x="830" y="142" font-size="10" fill="#fff" text-anchor="middle">↻ actualizar catálogo</text>
+
+  <!-- Table header -->
+  <rect x="0" y="155" width="900" height="26" fill="#161b22"/>
+  <rect x="0" y="181" width="900" height="0.5" fill="#30363d"/>
+  <text x="16" y="172" font-size="10" fill="#8b949e" font-weight="bold">PRODUCTO</text>
+  <text x="230" y="172" font-size="10" fill="#8b949e" font-weight="bold">VERSIÓN</text>
+  <text x="310" y="172" font-size="10" fill="#8b949e" font-weight="bold">ESTADO</text>
+  <text x="410" y="172" font-size="10" fill="#8b949e" font-weight="bold">FIN DE SOPORTE</text>
+  <text x="550" y="172" font-size="10" fill="#8b949e" font-weight="bold">CATEGORÍA</text>
+  <text x="700" y="172" font-size="10" fill="#8b949e" font-weight="bold">CVEs</text>
+  <text x="780" y="172" font-size="10" fill="#8b949e" font-weight="bold">ACCIONES</text>
+
+  <!-- Row 1 — Node.js 22 LTS -->
+  <rect x="0" y="182" width="900" height="36" fill="#0d1117"/>
+  <rect x="0" y="218" width="900" height="0.5" fill="#21262d"/>
+  <circle cx="26" cy="200" r="6" fill="#3fb950"/>
+  <text x="40" y="205" font-size="11" fill="#e6edf3">Node.js</text>
+  <text x="40" y="214" font-size="9" fill="#8b949e">nodejs</text>
+  <text x="230" y="204" font-size="11" fill="#e6edf3">22.16.0</text>
+  <text x="230" y="213" font-size="9" fill="#8b949e">LTS</text>
+  <rect x="310" y="190" width="56" height="16" fill="#1a4a1f" rx="8"/>
+  <text x="338" y="202" font-size="9" fill="#3fb950" text-anchor="middle">vigente</text>
+  <text x="410" y="204" font-size="10" fill="#8b949e">2027-04-30</text>
+  <text x="550" y="204" font-size="10" fill="#8b949e">Runtime / JS</text>
+  <rect x="700" y="192" width="20" height="16" fill="#21262d" rx="3"/>
+  <text x="710" y="204" font-size="9" fill="#8b949e" text-anchor="middle">0</text>
+  <text x="790" y="204" font-size="10" fill="#58a6ff">ver detalle</text>
+
+  <!-- Row 2 — Python 3.9 -->
+  <rect x="0" y="218" width="900" height="36" fill="#0f1419"/>
+  <rect x="0" y="254" width="900" height="0.5" fill="#21262d"/>
+  <circle cx="26" cy="236" r="6" fill="#f85149"/>
+  <text x="40" y="241" font-size="11" fill="#e6edf3">Python</text>
+  <text x="40" y="250" font-size="9" fill="#8b949e">python</text>
+  <text x="230" y="240" font-size="11" fill="#e6edf3">3.9.21</text>
+  <text x="230" y="249" font-size="9" fill="#8b949e">—</text>
+  <rect x="310" y="226" width="36" height="16" fill="#4a1f1f" rx="8"/>
+  <text x="328" y="238" font-size="9" fill="#f85149" text-anchor="middle">EOL</text>
+  <text x="410" y="240" font-size="10" fill="#f85149">2025-10-05 ✓</text>
+  <text x="550" y="240" font-size="10" fill="#8b949e">Runtime / Python</text>
+  <rect x="700" y="228" width="20" height="16" fill="#4a1f1f" rx="3"/>
+  <text x="710" y="240" font-size="9" fill="#f85149" text-anchor="middle">4</text>
+  <text x="790" y="240" font-size="10" fill="#58a6ff">ver detalle</text>
+
+  <!-- Row 3 — React 18 -->
+  <rect x="0" y="254" width="900" height="36" fill="#0d1117"/>
+  <rect x="0" y="290" width="900" height="0.5" fill="#21262d"/>
+  <circle cx="26" cy="272" r="6" fill="#3fb950"/>
+  <text x="40" y="277" font-size="11" fill="#e6edf3">React</text>
+  <text x="40" y="286" font-size="9" fill="#8b949e">react (npm)</text>
+  <text x="230" y="276" font-size="11" fill="#e6edf3">19.1.0</text>
+  <text x="230" y="285" font-size="9" fill="#8b949e">latest</text>
+  <rect x="310" y="262" width="56" height="16" fill="#1a4a1f" rx="8"/>
+  <text x="338" y="274" font-size="9" fill="#3fb950" text-anchor="middle">vigente</text>
+  <text x="410" y="276" font-size="10" fill="#8b949e">sin EOL formal</text>
+  <text x="550" y="276" font-size="10" fill="#8b949e">Framework / JS</text>
+  <rect x="700" y="264" width="20" height="16" fill="#21262d" rx="3"/>
+  <text x="710" y="276" font-size="9" fill="#8b949e" text-anchor="middle">0</text>
+  <text x="790" y="276" font-size="10" fill="#58a6ff">ver detalle</text>
+
+  <!-- Row 4 — Django 4.2 LTS -->
+  <rect x="0" y="290" width="900" height="36" fill="#0f1419"/>
+  <rect x="0" y="326" width="900" height="0.5" fill="#21262d"/>
+  <circle cx="26" cy="308" r="6" fill="#d29922"/>
+  <text x="40" y="313" font-size="11" fill="#e6edf3">Django</text>
+  <text x="40" y="322" font-size="9" fill="#8b949e">django</text>
+  <text x="230" y="312" font-size="11" fill="#e6edf3">4.2.22</text>
+  <text x="230" y="321" font-size="9" fill="#8b949e">LTS</text>
+  <rect x="310" y="298" width="70" height="16" fill="#3b2f00" rx="8"/>
+  <text x="345" y="310" font-size="9" fill="#d29922" text-anchor="middle">obsoleto</text>
+  <text x="410" y="312" font-size="10" fill="#d29922">2026-04-01</text>
+  <text x="550" y="312" font-size="10" fill="#8b949e">Framework / Python</text>
+  <rect x="700" y="300" width="20" height="16" fill="#3b2f00" rx="3"/>
+  <text x="710" y="312" font-size="9" fill="#d29922" text-anchor="middle">2</text>
+  <text x="790" y="312" font-size="10" fill="#58a6ff">ver detalle</text>
+
+  <!-- Row 5 — nginx 1.24 -->
+  <rect x="0" y="326" width="900" height="36" fill="#0d1117"/>
+  <rect x="0" y="362" width="900" height="0.5" fill="#21262d"/>
+  <circle cx="26" cy="344" r="6" fill="#3fb950"/>
+  <text x="40" y="349" font-size="11" fill="#e6edf3">nginx</text>
+  <text x="40" y="358" font-size="9" fill="#8b949e">nginx</text>
+  <text x="230" y="348" font-size="11" fill="#e6edf3">1.28.0</text>
+  <text x="230" y="357" font-size="9" fill="#8b949e">stable</text>
+  <rect x="310" y="334" width="56" height="16" fill="#1a4a1f" rx="8"/>
+  <text x="338" y="346" font-size="9" fill="#3fb950" text-anchor="middle">vigente</text>
+  <text x="410" y="348" font-size="10" fill="#8b949e">mantenimiento activo</text>
+  <text x="550" y="348" font-size="10" fill="#8b949e">Servidor Web</text>
+  <rect x="700" y="336" width="20" height="16" fill="#21262d" rx="3"/>
+  <text x="710" y="348" font-size="9" fill="#8b949e" text-anchor="middle">0</text>
+  <text x="790" y="348" font-size="10" fill="#58a6ff">ver detalle</text>
+
+  <!-- Row 6 — jQuery 3.x -->
+  <rect x="0" y="362" width="900" height="36" fill="#0f1419"/>
+  <rect x="0" y="398" width="900" height="0.5" fill="#21262d"/>
+  <circle cx="26" cy="380" r="6" fill="#3fb950"/>
+  <text x="40" y="385" font-size="11" fill="#e6edf3">jQuery</text>
+  <text x="40" y="394" font-size="9" fill="#8b949e">jquery (npm)</text>
+  <text x="230" y="384" font-size="11" fill="#e6edf3">3.x</text>
+  <text x="230" y="393" font-size="9" fill="#8b949e">latest major</text>
+  <rect x="310" y="370" width="56" height="16" fill="#1a4a1f" rx="8"/>
+  <text x="338" y="382" font-size="9" fill="#3fb950" text-anchor="middle">vigente</text>
+  <text x="410" y="384" font-size="10" fill="#8b949e">sin EOL formal</text>
+  <text x="550" y="384" font-size="10" fill="#8b949e">Librería / JS</text>
+  <rect x="700" y="372" width="20" height="16" fill="#21262d" rx="3"/>
+  <text x="710" y="384" font-size="9" fill="#8b949e" text-anchor="middle">0</text>
+  <text x="790" y="384" font-size="10" fill="#58a6ff">ver detalle</text>
+
+  <!-- Row 7 — PostgreSQL 14 -->
+  <rect x="0" y="398" width="900" height="36" fill="#0d1117"/>
+  <rect x="0" y="434" width="900" height="0.5" fill="#21262d"/>
+  <circle cx="26" cy="416" r="6" fill="#f85149"/>
+  <text x="40" y="421" font-size="11" fill="#e6edf3">PostgreSQL</text>
+  <text x="40" y="430" font-size="9" fill="#8b949e">postgresql</text>
+  <text x="230" y="420" font-size="11" fill="#e6edf3">14.17</text>
+  <text x="230" y="429" font-size="9" fill="#8b949e">—</text>
+  <rect x="310" y="406" width="36" height="16" fill="#4a1f1f" rx="8"/>
+  <text x="328" y="418" font-size="9" fill="#f85149" text-anchor="middle">EOL</text>
+  <text x="410" y="420" font-size="10" fill="#f85149">2026-11-12</text>
+  <text x="550" y="420" font-size="10" fill="#8b949e">Base de datos</text>
+  <rect x="700" y="408" width="20" height="16" fill="#4a1f1f" rx="3"/>
+  <text x="710" y="420" font-size="9" fill="#f85149" text-anchor="middle">1</text>
+  <text x="790" y="420" font-size="10" fill="#58a6ff">ver detalle</text>
+
+  <!-- Status bar footer -->
+  <rect x="0" y="550" width="900" height="30" fill="#161b22"/>
+  <rect x="0" y="550" width="900" height="0.5" fill="#30363d"/>
+  <text x="16" y="569" font-size="9" fill="#8b949e">Datos: endoflife.date · OSV.dev · npm registry · Maven Central · Python 3.14 · Flask 3.x</text>
+  <text x="840" y="569" font-size="9" fill="#8b949e" text-anchor="end">v2.0 · local</text>
+</svg>
