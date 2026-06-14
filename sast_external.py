@@ -15,10 +15,14 @@ el árbol ya extraído):
                 corrobora a detect-secrets en los mismos hallazgos).
   - Trivy     : escaneo del árbol de archivos — dependencias vulnerables (SCA),
                 secretos y configuración insegura (IaC / Dockerfile / k8s).
+  - RetireJS (retire): escáner de librerías JavaScript con vulnerabilidades
+                conocidas; se instala por npm y NO depende de la versión de Python
+                (cubre la dimensión JS cuando njsscan no está disponible, p.ej. 3.14+).
 
 Cada motor cubre una DIMENSIÓN distinta para lograr defensa en profundidad:
 secretos (detect-secrets + Gitleaks + Trivy), SAST Python (Bandit), SAST Node/JS
-(njsscan + Semgrep), SAST multi-lenguaje (Semgrep), y SCA + IaC (Trivy).
+(njsscan + Semgrep), SAST multi-lenguaje (Semgrep), SCA + IaC (Trivy) y
+librerías JS vulnerables (RetireJS).
 
 Todos son OPCIONALES y se autodetectan: si no están instalados, la herramienta
 funciona igual con su motor propio. Las salidas se NORMALIZAN al mismo esquema de
@@ -99,6 +103,13 @@ def _rel_to_root(p: str, root: str) -> str:
         return p
 
 
+def _exe(name: str) -> str | None:
+    """Ruta COMPLETA del ejecutable de un motor, o None si no está.
+    Imprescindible en Windows: los CLIs instalados por npm son `.CMD` y no se
+    pueden lanzar por nombre con subprocess (sin shell) — sí por ruta completa."""
+    return shutil.which(name)
+
+
 def available_engines() -> dict:
     """Detecta qué motores externos están instalados (sin ejecutarlos)."""
     eng = {}
@@ -112,6 +123,7 @@ def available_engines() -> dict:
     eng["njsscan"] = bool(shutil.which("njsscan"))
     eng["gitleaks"] = bool(shutil.which("gitleaks"))
     eng["trivy"] = bool(shutil.which("trivy"))
+    eng["retire"] = bool(shutil.which("retire"))
     return eng
 
 
@@ -150,9 +162,10 @@ def _norm(root, rel, linea, rule_id, titulo, categoria, severidad, evidencia,
 
 def run_semgrep(root: str, timeout: int = 180) -> list:
     """Ejecuta Semgrep con el ruleset LOCAL (offline). No usa red."""
-    if not (shutil.which("semgrep") and os.path.exists(_SEMGREP_RULES)):
+    exe = _exe("semgrep")
+    if not (exe and os.path.exists(_SEMGREP_RULES)):
         return []
-    cmd = ["semgrep", "--config", _SEMGREP_RULES, "--json", "--quiet",
+    cmd = [exe, "--config", _SEMGREP_RULES, "--json", "--quiet",
            "--metrics=off", "--timeout", "60", "--max-target-bytes", "2000000", root]
     try:
         p = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout,
@@ -184,10 +197,11 @@ def run_semgrep(root: str, timeout: int = 180) -> list:
 
 
 def run_detect_secrets(root: str, timeout: int = 120) -> list:
-    if not shutil.which("detect-secrets"):
+    exe = _exe("detect-secrets")
+    if not exe:
         return []
     try:
-        p = subprocess.run(["detect-secrets", "scan", root], capture_output=True,
+        p = subprocess.run([exe, "scan", root], capture_output=True,
                            text=True, timeout=timeout)
         data = json.loads(p.stdout or "{}")
     except Exception:
@@ -207,10 +221,11 @@ def run_detect_secrets(root: str, timeout: int = 120) -> list:
 
 
 def run_bandit(root: str, timeout: int = 120) -> list:
-    if not (shutil.which("bandit")):
+    exe = _exe("bandit")
+    if not exe:
         return []
     try:
-        p = subprocess.run(["bandit", "-r", "-f", "json", "-q", root],
+        p = subprocess.run([exe, "-r", "-f", "json", "-q", root],
                            capture_output=True, text=True, timeout=timeout)
         data = json.loads(p.stdout or "{}")
     except Exception:
@@ -234,10 +249,11 @@ def run_bandit(root: str, timeout: int = 120) -> list:
 
 def run_njsscan(root: str, timeout: int = 180) -> list:
     """SAST de Node.js/JavaScript (MobSF njsscan). Estático, sin red ni ejecución."""
-    if not shutil.which("njsscan"):
+    exe = _exe("njsscan")
+    if not exe:
         return []
     try:
-        p = subprocess.run(["njsscan", "--json", root], capture_output=True,
+        p = subprocess.run([exe, "--json", root], capture_output=True,
                            text=True, timeout=timeout)
         data = json.loads(p.stdout or "{}")
     except Exception:
@@ -267,13 +283,14 @@ def run_njsscan(root: str, timeout: int = 180) -> list:
 def run_gitleaks(root: str, timeout: int = 180) -> list:
     """Detección de secretos (Gitleaks). Motor independiente de detect-secrets:
     cuando ambos coinciden, el hallazgo queda corroborado."""
-    if not shutil.which("gitleaks"):
+    exe = _exe("gitleaks")
+    if not exe:
         return []
     rep, data = None, []
     try:
         fd, rep = tempfile.mkstemp(suffix=".json", prefix="gitleaks_")
         os.close(fd)
-        cmd = ["gitleaks", "detect", "--source", root, "--no-git",
+        cmd = [exe, "detect", "--source", root, "--no-git",
                "--report-format", "json", "--report-path", rep,
                "--redact", "--exit-code", "0", "--no-banner"]
         subprocess.run(cmd, capture_output=True, text=True, timeout=timeout)
@@ -305,9 +322,10 @@ def run_trivy(root: str, timeout: int = 300) -> list:
     """Trivy en modo filesystem: dependencias vulnerables (SCA), secretos y
     configuración insegura (IaC / Dockerfile / k8s). La base de vulnerabilidades
     se descarga una vez (usa el proxy del entorno); si falla, degrada a []."""
-    if not shutil.which("trivy"):
+    exe = _exe("trivy")
+    if not exe:
         return []
-    cmd = ["trivy", "fs", "--quiet", "--format", "json",
+    cmd = [exe, "fs", "--quiet", "--format", "json",
            "--scanners", "vuln,secret,misconfig", "--timeout", "4m", root]
     try:
         p = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout,
@@ -362,6 +380,55 @@ def run_trivy(root: str, timeout: int = 300) -> list:
     return out
 
 
+def run_retirejs(root: str, timeout: int = 180) -> list:
+    """RetireJS (npm): librerías JavaScript con vulnerabilidades conocidas.
+    Estático, sin red de ejecución; se le pide salida JSON a un archivo temporal."""
+    exe = _exe("retire")
+    if not exe:
+        return []
+    rep, data = None, None
+    try:
+        fd, rep = tempfile.mkstemp(suffix=".json", prefix="retire_")
+        os.close(fd)
+        cmd = [exe, "--path", root, "--outputformat", "json",
+               "--outputpath", rep, "--exitwith", "0"]
+        subprocess.run(cmd, capture_output=True, text=True, timeout=timeout)
+        with open(rep, encoding="utf-8", errors="replace") as f:
+            data = json.load(f)
+    except Exception:
+        data = None
+    finally:
+        if rep and os.path.exists(rep):
+            try:
+                os.remove(rep)
+            except OSError:
+                pass
+    if data is None:
+        return []
+    # Según la versión, la salida es una lista o un objeto con clave "data".
+    entradas = data.get("data", []) if isinstance(data, dict) else data
+    out = []
+    for entry in (entradas or []):
+        rel = entry.get("file") or ""
+        for res in (entry.get("results") or []):
+            comp = res.get("component", "lib")
+            ver = res.get("version", "")
+            for v in (res.get("vulnerabilities") or []):
+                ids = v.get("identifiers", {}) or {}
+                cves = ids.get("CVE") or []
+                cve = cves[0] if cves else None
+                titulo = (ids.get("summary") or f"{comp} {ver}: librería JS vulnerable")[:80]
+                rid = "RETIRE-" + str(cve or ids.get("issue") or comp)
+                out.append(_norm(
+                    root, rel, None, rid, titulo,
+                    "LIBRERÍA JS VULNERABLE (SCA)",
+                    _SEV_MAP.get(str(v.get("severity", "")).upper(), "medio"),
+                    f"{comp} {ver}" + (f" -> {cve}" if cve else ""), None,
+                    f"Actualizar {comp} a una versión sin la vulnerabilidad reportada.",
+                    "retire"))
+    return out
+
+
 def run_all(root: str, engines: dict | None = None) -> dict:
     """Ejecuta los motores disponibles (o los indicados) y devuelve hallazgos
     normalizados + la lista de motores que efectivamente corrieron."""
@@ -380,4 +447,6 @@ def run_all(root: str, engines: dict | None = None) -> dict:
         f = run_gitleaks(root); findings += f; corridos.append(("gitleaks", len(f)))
     if sel.get("trivy") and disp.get("trivy"):
         f = run_trivy(root); findings += f; corridos.append(("trivy", len(f)))
+    if sel.get("retire") and disp.get("retire"):
+        f = run_retirejs(root); findings += f; corridos.append(("retire", len(f)))
     return {"findings": findings, "motores": corridos, "disponibles": disp}

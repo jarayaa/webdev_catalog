@@ -114,6 +114,7 @@ Todas las rutas `/api/*` exigirán `Authorization: Bearer <token>` o `X-Auth-Tok
 |----------|-----------|-------------|
 | `ANTHROPIC_API_KEY` | No | Clave de API Anthropic para redacción IA de reportes. Tiene precedencia sobre `config.json`. |
 | `WEBDEV_AUTH_TOKEN` | No | Token Bearer para proteger la interfaz en entornos compartidos. Sin él, sin autenticación. |
+| `WEBDEV_AUTO_INSTALL` | No | `1` (def.) autoinstala los motores SAST en el arranque; `0` lo desactiva. |
 | `HTTPS_PROXY` / `HTTP_PROXY` | No | Proxy corporativo. Alternativa al panel de configuración de la UI. |
 | `WEBDEV_MAX_JSON_BYTES` | No | Límite de respuesta JSON de APIs externas (bytes). Por defecto: `8388608` (8 MB). |
 | `WEBDEV_MAX_DEPS` | No | Máximo de dependencias por auditoría. Por defecto: `2000`. |
@@ -129,6 +130,7 @@ Ver [`.env.example`](.env.example) para referencia completa.
 ```
 webdev_catalog/
 ├── app.py                  # Servidor Flask (rutas, seguridad, rate limiting, CSRF)
+├── bootstrap.py            # Autoinstalación de motores SAST en el arranque (pip + npm, Python-aware)
 ├── net.py                  # Cliente HTTP con truststore, reintentos, caché TTL
 ├── catalog_data.py         # Mapa de productos endoflife.date y librerías npm
 ├── osv.py                  # Consultas OSV.dev (batch, caché)
@@ -224,15 +226,30 @@ el `PATH`. Si no están instalados, la app funciona igual. Cada uno cubre una
 | **detect-secrets** | Secretos | Detección por entropía y plugins (Yelp) | `pip` |
 | **Gitleaks** | Secretos | Reglas + entropía, motor independiente que corrobora a detect-secrets | binario (Go) |
 | **Trivy** | SCA + secretos + IaC | Dependencias vulnerables (CVE), secretos y misconfiguración Docker/k8s | binario (Go) |
+| **RetireJS** | Librerías JS vulnerables | Detecta versiones de librerías JavaScript con CVEs conocidos | **npm** |
+
+### Autoinstalación en el arranque (bootstrap)
+
+La aplicación **instala y configura estos motores automáticamente al arrancar**
+([bootstrap.py](bootstrap.py)), en segundo plano y sin bloquear el servicio:
+
+- Usa **pip** para semgrep, bandit, detect-secrets y njsscan; y **npm** para RetireJS.
+- Es **consciente de la versión de Python**: en 3.14+ omite njsscan (su dependencia
+  `pydantic-core` no tiene wheel) y cubre la dimensión JS con RetireJS vía npm.
+- Es idempotente (no reinstala lo presente), respeta el proxy del entorno y amplía
+  el `PATH` del proceso para descubrir los CLIs recién instalados.
+- Se desactiva con `WEBDEV_AUTO_INSTALL=0`. El estado queda visible en `GET /api/engines`.
+- Ejecución manual previa al despliegue: `python bootstrap.py`.
+
+Los motores binarios (Gitleaks, Trivy) **no** se autoinstalan por defecto —para no
+instalar software de sistema en silencio—; se detectan si están en el `PATH`:
 
 ```bash
-# Motores pip
-pip install -r requirements-advanced.txt
-# Instala: semgrep · bandit · detect-secrets · njsscan
-
-# Motores binarios (Windows)
-winget install Gitleaks.Gitleaks
-winget install AquaSecurity.Trivy
+# Instalación manual (alternativa o complemento al bootstrap)
+pip install -r requirements-advanced.txt   # semgrep · bandit · detect-secrets · njsscan
+npm install -g retire                       # RetireJS
+winget install Gitleaks.Gitleaks           # binario (Windows)
+winget install AquaSecurity.Trivy          # binario (Windows)
 ```
 
 Cuando dos o más motores coinciden en el mismo hallazgo (mismo archivo/línea/CWE, o
@@ -241,10 +258,11 @@ duplicarse. Todos los hallazgos se normalizan al mismo esquema (severidad,
 evidencia enmascarada, CWE, controles normativos y contexto), independientemente
 del motor de origen.
 
-> Verificado en este proyecto: Gitleaks y Trivy detectaron y corroboraron secretos
-> embebidos junto al motor interno, y Trivy reportó 7 CVEs distintos de una
-> dependencia npm desactualizada (SCA). njsscan requiere Python ≤ 3.13 (su
-> dependencia `pydantic-core` aún no publica wheel para 3.14).
+> Verificado en este proyecto (Python 3.14): el bootstrap instaló RetireJS vía npm
+> y omitió njsscan por versión; Gitleaks y Trivy corroboraron secretos junto al
+> motor interno; Trivy reportó 7 CVEs distintos de una dependencia npm (SCA) y
+> RetireJS 7 vulnerabilidades de una librería JS antigua. njsscan requiere
+> Python ≤ 3.13 (su dependencia `pydantic-core` aún no publica wheel para 3.14).
 
 ---
 

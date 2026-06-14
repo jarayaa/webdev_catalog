@@ -861,6 +861,24 @@ def api_auth_info():
     return jsonify({"auth_required": bool(_AUTH_TOKEN)})
 
 
+@app.get("/api/engines")
+def api_engines():
+    """Estado del bootstrap de dependencias y de los motores SAST disponibles.
+    Permite a la UI/diagnóstico ver qué motores quedaron activos tras el arranque."""
+    out = {}
+    try:
+        import bootstrap
+        out["bootstrap"] = bootstrap.status()
+    except Exception as e:
+        out["bootstrap"] = {"error": str(e)}
+    try:
+        import sast_external as SE
+        out["disponibles"] = SE.available_engines()
+    except Exception as e:
+        out["disponibles"] = {"error": str(e)}
+    return jsonify(out)
+
+
 @app.get("/api/status")
 def api_status():
     with _db_lock, get_db() as db:
@@ -1299,6 +1317,18 @@ def api_codescan_export():
             "pdf": "application/pdf", "md": "text/markdown"}[fmt]
     return Response(blob, mimetype=mime, headers={
         "Content-Disposition": f'attachment; filename="informe_cumplimiento.{ext}"'})
+
+
+# ---- Bootstrap de dependencias en el arranque -------------------------------
+# Instala/configura los motores SAST opcionales (pip + npm) en segundo plano, sin
+# bloquear ni poder derribar el arranque. Cubre tanto `python app.py` como
+# `waitress-serve app:app` (se ejecuta al importar el módulo, una sola vez).
+# Desactivable con WEBDEV_AUTO_INSTALL=0.
+try:
+    import bootstrap as _bootstrap
+    _bootstrap.start_async()
+except Exception as _e:  # nunca debe impedir levantar la app
+    _log.warning("No se pudo iniciar el bootstrap de dependencias: %s", _e)
 
 
 def main():

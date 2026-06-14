@@ -4,13 +4,22 @@
 #
 # La aplicación funciona sin estos paquetes; si están presentes, se autodetectan
 # y sus hallazgos se integran y corroboran con el motor propio.
+#
+# AUTOINSTALACIÓN: en el arranque, bootstrap.py intenta dejar disponibles estos
+# motores automáticamente (pip + npm), saltando los incompatibles con la versión
+# de Python en uso (p. ej. njsscan en 3.14+). Desactívalo con WEBDEV_AUTO_INSTALL=0.
 
 semgrep>=1.60          # SAST multi-lenguaje (usa el ruleset local semgrep_rules.yml, sin red)
 detect-secrets>=1.4    # detección de secretos por entropía/plugins (Yelp)
 bandit>=1.7            # SAST específico de Python
 njsscan>=0.4           # SAST de Node.js / JavaScript (MobSF) — complementa a Bandit en el stack web
 
-# Motores basados en binario (instalar aparte del pip; se autodetectan en el PATH):
+# Motores basados en npm (Node.js). bootstrap.py los instala con `npm install -g`:
+#   - retire (RetireJS): librerías JavaScript con vulnerabilidades conocidas.
+#                 Manual: npm install -g retire
+#
+# Motores basados en binario (instalar aparte; se autodetectan en el PATH). No los
+# autoinstala el bootstrap por defecto (evita instalar software de sistema en silencio):
 #   - Gitleaks  : detección de secretos (Go).      https://github.com/gitleaks/gitleaks
 #                 Windows: winget install Gitleaks.Gitleaks   |  o descargar el binario.
 #   - Trivy     : SCA + secretos + IaC (Aqua).     https://github.com/aquasecurity/trivy
