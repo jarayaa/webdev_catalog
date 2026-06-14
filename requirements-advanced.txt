@@ -8,3 +8,11 @@
 semgrep>=1.60          # SAST multi-lenguaje (usa el ruleset local semgrep_rules.yml, sin red)
 detect-secrets>=1.4    # detección de secretos por entropía/plugins (Yelp)
 bandit>=1.7            # SAST específico de Python
+njsscan>=0.4           # SAST de Node.js / JavaScript (MobSF) — complementa a Bandit en el stack web
+
+# Motores basados en binario (instalar aparte del pip; se autodetectan en el PATH):
+#   - Gitleaks  : detección de secretos (Go).      https://github.com/gitleaks/gitleaks
+#                 Windows: winget install Gitleaks.Gitleaks   |  o descargar el binario.
+#   - Trivy     : SCA + secretos + IaC (Aqua).     https://github.com/aquasecurity/trivy
+#                 Windows: winget install AquaSecurity.Trivy  |  o descargar el binario.
+#                 (La base de vulnerabilidades se descarga una vez; respeta el proxy del entorno.)

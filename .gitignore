@@ -8,3 +8,5 @@ config.json
 .env
 .scannerwork/
 docs/jmeter/html/
+# fixtures locales de QA con secretos ficticios; no versionar
+tests/sample_app/

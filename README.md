@@ -18,7 +18,7 @@ Dashboard de inventario y auditoría de software orientado al stack de desarroll
 
 ### Análisis estático de código (SAST)
 ![Análisis SAST](docs/screenshots/codescan.svg)
-*SAST multicapa: motor propio + taint analysis + clasificador ML + Semgrep/Bandit/detect-secrets (opcional). Hallazgos mapeados a Decretos 7/9/10/11 y DS83/2004.*
+*SAST multicapa: motor propio + taint analysis + clasificador ML + motores OSS opcionales (Semgrep, Bandit, njsscan, detect-secrets, Gitleaks, Trivy). Hallazgos mapeados a Decretos 7/9/10/11 y DS83/2004.*
 
 ### Reporte de riesgo con IA
 ![Reporte con IA](docs/screenshots/report.svg)
@@ -135,7 +135,7 @@ webdev_catalog/
 ├── code_scan.py            # Motor SAST principal (patrones, CWE, norma)
 ├── taint.py                # Análisis de flujo de datos intra-archivo
 ├── ml_secrets.py           # Clasificador ML de verosimilitud de secretos
-├── sast_external.py        # Integración Semgrep / Bandit / detect-secrets
+├── sast_external.py        # Integración Semgrep / Bandit / njsscan / detect-secrets / Gitleaks / Trivy
 ├── compliance.py           # Marco normativo chileno (Decretos 7/9/10/11, DS83)
 ├── regulatory.py           # Catálogo de controles auditables
 ├── report.py               # Generación de reportes (estructura, secciones)
@@ -210,14 +210,41 @@ El análisis de código evalúa cumplimiento artículo a artículo de:
 
 ---
 
-## Análisis avanzado (opcional)
+## Análisis avanzado: motores SAST de código abierto (opcional)
+
+El motor propio se robustece con motores de la industria que se **autodetectan** en
+el `PATH`. Si no están instalados, la app funciona igual. Cada uno cubre una
+**dimensión distinta** para lograr defensa en profundidad:
+
+| Motor | Tipo | Dimensión que aporta | Instalación |
+|-------|------|----------------------|-------------|
+| **Semgrep** | SAST multi-lenguaje | Reglas locales offline ([semgrep_rules.yml](semgrep_rules.yml)) alineadas a la norma | `pip` |
+| **Bandit** | SAST Python | Patrones inseguros en código Python | `pip` |
+| **njsscan** | SAST Node/JS | Patrones inseguros en JavaScript/Node (eval, XSS, etc.) | `pip` |
+| **detect-secrets** | Secretos | Detección por entropía y plugins (Yelp) | `pip` |
+| **Gitleaks** | Secretos | Reglas + entropía, motor independiente que corrobora a detect-secrets | binario (Go) |
+| **Trivy** | SCA + secretos + IaC | Dependencias vulnerables (CVE), secretos y misconfiguración Docker/k8s | binario (Go) |
 
 ```bash
+# Motores pip
 pip install -r requirements-advanced.txt
-# Instala: semgrep · bandit · detect-secrets
+# Instala: semgrep · bandit · detect-secrets · njsscan
+
+# Motores binarios (Windows)
+winget install Gitleaks.Gitleaks
+winget install AquaSecurity.Trivy
 ```
 
-Cuando están disponibles, se ejecutan automáticamente y sus hallazgos se integran al mismo esquema con CWE y norma. Si dos motores coinciden en el mismo punto, el hallazgo se marca como **corroborado** (mayor confianza) en vez de duplicarse.
+Cuando dos o más motores coinciden en el mismo hallazgo (mismo archivo/línea/CWE, o
+mismo CVE en SCA), se marca como **corroborado** (mayor confianza) en vez de
+duplicarse. Todos los hallazgos se normalizan al mismo esquema (severidad,
+evidencia enmascarada, CWE, controles normativos y contexto), independientemente
+del motor de origen.
+
+> Verificado en este proyecto: Gitleaks y Trivy detectaron y corroboraron secretos
+> embebidos junto al motor interno, y Trivy reportó 7 CVEs distintos de una
+> dependencia npm desactualizada (SCA). njsscan requiere Python ≤ 3.13 (su
+> dependencia `pydantic-core` aún no publica wheel para 3.14).
 
 ---
 

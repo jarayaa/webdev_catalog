@@ -596,7 +596,17 @@ def scan_tree(root: str, max_files: int = 5000, run_external: bool = False,
                 cwe = x.get("cwe") or ""
                 mm = _re.search(r"CWE-\d+", str(cwe))
                 cwe_norm = mm.group(0) if mm else (x.get("categoria") or "")
-                return (x.get("archivo"), x.get("linea"), cwe_norm)
+                linea = x.get("linea")
+                if linea is None:
+                    # Hallazgos sin línea (SCA de dependencias, licencia, etc.): si se
+                    # dedujeran por (archivo, None, CWE) se fusionarían CVEs DISTINTOS de
+                    # un mismo paquete con igual CWE. Se discrimina por CVE (corrobora el
+                    # mismo CVE entre motores) o, en su defecto, por rule_id.
+                    cve = _re.search(r"CVE-\d{4}-\d+",
+                                     f"{x.get('rule_id','')} {x.get('evidencia','')}")
+                    disc = cve.group(0) if cve else (x.get("rule_id") or cwe_norm)
+                    return (x.get("archivo"), None, disc)
+                return (x.get("archivo"), linea, cwe_norm)
             idx = {}
             for f in findings:
                 idx.setdefault(_clave(f), f)

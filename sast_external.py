@@ -9,6 +9,16 @@ el árbol ya extraído):
                 alineado a los controles normativos (ver semgrep_rules.yml).
   - detect-secrets (Yelp): detección de secretos por entropía y plugins.
   - Bandit    : SAST específico de Python.
+  - njsscan (MobSF): SAST específico de Node.js / JavaScript (complementa a
+                Bandit para el stack web).
+  - Gitleaks  : detección de secretos por reglas+entropía (motor independiente;
+                corrobora a detect-secrets en los mismos hallazgos).
+  - Trivy     : escaneo del árbol de archivos — dependencias vulnerables (SCA),
+                secretos y configuración insegura (IaC / Dockerfile / k8s).
+
+Cada motor cubre una DIMENSIÓN distinta para lograr defensa en profundidad:
+secretos (detect-secrets + Gitleaks + Trivy), SAST Python (Bandit), SAST Node/JS
+(njsscan + Semgrep), SAST multi-lenguaje (Semgrep), y SCA + IaC (Trivy).
 
 Todos son OPCIONALES y se autodetectan: si no están instalados, la herramienta
 funciona igual con su motor propio. Las salidas se NORMALIZAN al mismo esquema de
@@ -22,8 +32,10 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import shutil
 import subprocess
+import tempfile
 
 import code_scan as CS
 
@@ -31,9 +43,10 @@ _SEMGREP_RULES = os.path.join(os.path.dirname(os.path.abspath(__file__)), "semgr
 
 # Severidad de los motores externos → nuestra escala.
 _SEV_MAP = {
-    "ERROR": "alto", "WARNING": "medio", "INFO": "bajo",          # semgrep
-    "HIGH": "alto", "MEDIUM": "medio", "LOW": "bajo",             # bandit
+    "ERROR": "alto", "WARNING": "medio", "INFO": "bajo",          # semgrep / njsscan
+    "HIGH": "alto", "MEDIUM": "medio", "LOW": "bajo",             # bandit / trivy
     "CRITICAL": "crítico",
+    "UNKNOWN": "bajo",                                            # trivy (sin severidad)
 }
 
 # CWE → controles normativos (best-effort, para trazabilidad de cumplimiento).
@@ -50,7 +63,40 @@ _CWE_CONTROLES = {
     "CWE-78":  ["DS83-A31-ACCESO-NO-AUTORIZADO"],
     "CWE-22":  ["DS83-A31-ACCESO-NO-AUTORIZADO"],
     "CWE-89-i": ["DS83-A31-ACCESO-NO-AUTORIZADO"],
+    # Adicionales aportados por njsscan / Trivy (best-effort, reutilizan IDs ya usados).
+    "CWE-79":  ["D7-A8-PROTECCION-DATOS"],                        # XSS
+    "CWE-94":  ["DS83-A31-ACCESO-NO-AUTORIZADO"],                 # inyección de código
+    "CWE-95":  ["DS83-A31-ACCESO-NO-AUTORIZADO"],                 # eval dinámico
+    "CWE-502": ["DS83-A31-ACCESO-NO-AUTORIZADO"],                 # deserialización insegura
+    "CWE-352": ["D7-A8-PROTECCION-DATOS"],                        # CSRF
+    "CWE-918": ["D9-A6-TLS", "D7-A8-PROTECCION-DATOS"],           # SSRF
+    "CWE-1321": ["D7-A8-PROTECCION-DATOS"],                       # prototype pollution
 }
+
+
+def _rel_to_root(p: str, root: str) -> str:
+    """Normaliza la ruta de un motor externo a ruta RELATIVA al `root` analizado.
+    Los motores reportan rutas de forma heterogénea (absolutas, relativas al CWD,
+    o relativas al source); homogeneizarlas es lo que permite que la corroboración
+    entre motores y el motor interno funcione (la clave de dedup usa la ruta)."""
+    if not p:
+        return p
+    candidatos = []
+    if os.path.isabs(p):
+        candidatos.append(p)
+    else:
+        candidatos.append(os.path.join(root, p))   # relativa al root / source
+        candidatos.append(os.path.abspath(p))       # relativa al CWD
+    for ap in candidatos:
+        if os.path.exists(ap):
+            try:
+                return os.path.relpath(ap, root)
+            except Exception:
+                pass
+    try:
+        return os.path.relpath(os.path.abspath(p), root)
+    except Exception:
+        return p
 
 
 def available_engines() -> dict:
@@ -63,6 +109,9 @@ def available_engines() -> dict:
         eng["bandit"] = True
     except Exception:
         eng["bandit"] = bool(shutil.which("bandit"))
+    eng["njsscan"] = bool(shutil.which("njsscan"))
+    eng["gitleaks"] = bool(shutil.which("gitleaks"))
+    eng["trivy"] = bool(shutil.which("trivy"))
     return eng
 
 
@@ -86,6 +135,7 @@ def _ctx_for(root: str, rel: str, linea: int | None) -> dict:
 
 def _norm(root, rel, linea, rule_id, titulo, categoria, severidad, evidencia,
           cwe, mitigacion, motor):
+    rel = _rel_to_root(rel, root)
     controles = _CWE_CONTROLES.get(cwe or "", [])
     return {
         "rule_id": rule_id, "titulo": titulo, "categoria": categoria,
@@ -120,8 +170,7 @@ def run_semgrep(root: str, timeout: int = 180) -> list:
         if isinstance(cwe, list):
             cwe = cwe[0] if cwe else None
         if cwe and "CWE-" in str(cwe):
-            import re as _re
-            mm = _re.search(r"CWE-\d+", str(cwe))
+            mm = re.search(r"CWE-\d+", str(cwe))
             cwe = mm.group(0) if mm else None
         out.append(_norm(
             root, rel, (r.get("start") or {}).get("line"),
@@ -145,7 +194,7 @@ def run_detect_secrets(root: str, timeout: int = 120) -> list:
         return []
     out = []
     for path, items in (data.get("results", {}) or {}).items():
-        rel = os.path.relpath(path, root) if os.path.isabs(path) else path
+        rel = path  # _norm la normaliza a ruta relativa al root
         for it in items:
             out.append(_norm(
                 root, rel, it.get("line_number"),
@@ -183,6 +232,136 @@ def run_bandit(root: str, timeout: int = 120) -> list:
     return out
 
 
+def run_njsscan(root: str, timeout: int = 180) -> list:
+    """SAST de Node.js/JavaScript (MobSF njsscan). Estático, sin red ni ejecución."""
+    if not shutil.which("njsscan"):
+        return []
+    try:
+        p = subprocess.run(["njsscan", "--json", root], capture_output=True,
+                           text=True, timeout=timeout)
+        data = json.loads(p.stdout or "{}")
+    except Exception:
+        return []
+    out = []
+    for seccion in ("nodejs", "templates"):
+        for rule_id, info in (data.get(seccion) or {}).items():
+            meta = info.get("metadata", {}) or {}
+            cwe = meta.get("cwe")
+            if cwe:
+                mm = re.search(r"CWE-\d+", str(cwe))
+                cwe = mm.group(0) if mm else None
+            sev = _SEV_MAP.get(str(meta.get("severity", "")).upper(), "medio")
+            titulo = (meta.get("description") or rule_id)[:80]
+            mitig = meta.get("description") or "Revisar el patrón inseguro detectado por njsscan."
+            for fobj in (info.get("files") or []):
+                rel = fobj.get("file_path") or ""   # _norm la normaliza
+                ml = fobj.get("match_lines") or []
+                linea = ml[0] if ml else None
+                out.append(_norm(
+                    root, rel, linea, "NJS-" + str(rule_id), titulo,
+                    "SAST EXTERNO (Node/JS)", sev,
+                    fobj.get("match_string") or "", cwe, mitig, "njsscan"))
+    return out
+
+
+def run_gitleaks(root: str, timeout: int = 180) -> list:
+    """Detección de secretos (Gitleaks). Motor independiente de detect-secrets:
+    cuando ambos coinciden, el hallazgo queda corroborado."""
+    if not shutil.which("gitleaks"):
+        return []
+    rep, data = None, []
+    try:
+        fd, rep = tempfile.mkstemp(suffix=".json", prefix="gitleaks_")
+        os.close(fd)
+        cmd = ["gitleaks", "detect", "--source", root, "--no-git",
+               "--report-format", "json", "--report-path", rep,
+               "--redact", "--exit-code", "0", "--no-banner"]
+        subprocess.run(cmd, capture_output=True, text=True, timeout=timeout)
+        with open(rep, encoding="utf-8", errors="replace") as f:
+            data = json.load(f)
+    except Exception:
+        data = []
+    finally:
+        if rep and os.path.exists(rep):
+            try:
+                os.remove(rep)
+            except OSError:
+                pass
+    out = []
+    for it in (data or []):
+        rel = it.get("File") or ""   # _norm la normaliza a ruta relativa al root
+        out.append(_norm(
+            root, rel, it.get("StartLine"),
+            "GL-" + str(it.get("RuleID", "secreto")),
+            ("Secreto detectado: " + str(it.get("Description", "genérico")))[:80],
+            "COMPARTIMENTAJE", "alto",
+            it.get("Match") or it.get("Secret") or "", "CWE-798",
+            "Remover el secreto del código y rotarlo; usar un gestor de secretos.",
+            "gitleaks"))
+    return out
+
+
+def run_trivy(root: str, timeout: int = 300) -> list:
+    """Trivy en modo filesystem: dependencias vulnerables (SCA), secretos y
+    configuración insegura (IaC / Dockerfile / k8s). La base de vulnerabilidades
+    se descarga una vez (usa el proxy del entorno); si falla, degrada a []."""
+    if not shutil.which("trivy"):
+        return []
+    cmd = ["trivy", "fs", "--quiet", "--format", "json",
+           "--scanners", "vuln,secret,misconfig", "--timeout", "4m", root]
+    try:
+        p = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout,
+                           env={**os.environ, "TRIVY_DISABLE_VEX_NOTICE": "true"})
+        data = json.loads(p.stdout or "{}")
+    except Exception:
+        return []
+    out = []
+    for res in (data.get("Results") or []):
+        rel = res.get("Target") or ""   # _norm la normaliza a ruta relativa al root
+        # (1) Dependencias vulnerables (SCA): sin línea, ancladas al manifiesto.
+        for v in (res.get("Vulnerabilities") or []):
+            cwe = None
+            cwes = v.get("CweIDs") or []
+            if cwes:
+                mm = re.search(r"CWE-\d+", str(cwes[0]))
+                cwe = mm.group(0) if mm else None
+            ev = f"{v.get('PkgName','')} {v.get('InstalledVersion','')} -> {v.get('VulnerabilityID','')}"
+            fix = v.get("FixedVersion")
+            mitig = (f"Actualizar {v.get('PkgName','')} a {fix}." if fix
+                     else "Actualizar la dependencia a una versión sin la vulnerabilidad.")
+            out.append(_norm(
+                root, rel, None,
+                "TRIVY-" + str(v.get("VulnerabilityID", "VULN")),
+                (v.get("Title") or v.get("VulnerabilityID") or "Dependencia vulnerable")[:80],
+                "DEPENDENCIA VULNERABLE (SCA)",
+                _SEV_MAP.get(str(v.get("Severity", "")).upper(), "medio"),
+                ev, cwe, mitig, "trivy"))
+        # (2) Secretos embebidos.
+        for s in (res.get("Secrets") or []):
+            out.append(_norm(
+                root, rel, s.get("StartLine"),
+                "TRIVY-SEC-" + str(s.get("RuleID", "secreto")),
+                ("Secreto detectado: " + str(s.get("Title", "genérico")))[:80],
+                "COMPARTIMENTAJE",
+                _SEV_MAP.get(str(s.get("Severity", "")).upper(), "alto"),
+                s.get("Match") or "", "CWE-798",
+                "Remover el secreto del código y rotarlo; usar un gestor de secretos.",
+                "trivy"))
+        # (3) Configuración insegura (IaC / Dockerfile / manifiestos k8s).
+        for m in (res.get("Misconfigurations") or []):
+            cm = m.get("CauseMetadata") or {}
+            out.append(_norm(
+                root, rel, cm.get("StartLine"),
+                "TRIVY-CFG-" + str(m.get("ID", "config")),
+                (m.get("Title") or "Configuración insegura")[:80],
+                "CONFIGURACIÓN INSEGURA (IaC)",
+                _SEV_MAP.get(str(m.get("Severity", "")).upper(), "medio"),
+                (m.get("Message") or "")[:200], None,
+                m.get("Resolution") or "Corregir la configuración según la recomendación de Trivy.",
+                "trivy"))
+    return out
+
+
 def run_all(root: str, engines: dict | None = None) -> dict:
     """Ejecuta los motores disponibles (o los indicados) y devuelve hallazgos
     normalizados + la lista de motores que efectivamente corrieron."""
@@ -195,4 +374,10 @@ def run_all(root: str, engines: dict | None = None) -> dict:
         f = run_detect_secrets(root); findings += f; corridos.append(("detect-secrets", len(f)))
     if sel.get("bandit") and disp.get("bandit"):
         f = run_bandit(root); findings += f; corridos.append(("bandit", len(f)))
+    if sel.get("njsscan") and disp.get("njsscan"):
+        f = run_njsscan(root); findings += f; corridos.append(("njsscan", len(f)))
+    if sel.get("gitleaks") and disp.get("gitleaks"):
+        f = run_gitleaks(root); findings += f; corridos.append(("gitleaks", len(f)))
+    if sel.get("trivy") and disp.get("trivy"):
+        f = run_trivy(root); findings += f; corridos.append(("trivy", len(f)))
     return {"findings": findings, "motores": corridos, "disponibles": disp}
