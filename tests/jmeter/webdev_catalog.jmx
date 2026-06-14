@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.6.3">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan"
+              testname="WebDev Catalog — Pruebas de Carga y Seguridad" enabled="true">
+      <stringProp name="TestPlan.comments">
+        Plan de pruebas dinámicas: carga, rate limiting, CSRF, cabeceras de seguridad.
+        Host: host.docker.internal:5001 (Flask corriendo en el host)
+      </stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments"
+                   guiclass="ArgumentsPanel" testclass="Arguments" testname="Variables globales" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="HOST" elementType="Argument">
+            <stringProp name="Argument.name">HOST</stringProp>
+            <stringProp name="Argument.value">${__P(host,host.docker.internal)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="PORT" elementType="Argument">
+            <stringProp name="Argument.name">PORT</stringProp>
+            <stringProp name="Argument.value">${__P(port,5001)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </elementProp>
+    </TestPlan>
+
+    <hashTree>
+
+      <!-- ═══════════════════════════════════════════════════════════════
+           THREAD GROUP 1: CARGA GENERAL DE LECTURA
+           10 usuarios concurrentes · 60 segundos · GET endpoints
+           ═══════════════════════════════════════════════════════════════ -->
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup"
+                   testname="TG1 - Carga General (GET, 10u, 60s)" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController"
+                     guiclass="LoopControlPanel" testclass="LoopController" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">10</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">10</stringProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
+        <stringProp name="ThreadGroup.duration">60</stringProp>
+        <stringProp name="ThreadGroup.delay">0</stringProp>
+      </ThreadGroup>
+      <hashTree>
+
+        <!-- Cookie manager (guarda csrftoken automáticamente) -->
+        <CookieManager guiclass="CookiePanel" testclass="CookieManager"
+                       testname="Gestor de Cookies" enabled="true">
+          <collectionProp name="CookieManager.cookies"/>
+          <boolProp name="CookieManager.clearEachIteration">true</boolProp>
+          <boolProp name="CookieManager.controlledByThreadGroup">false</boolProp>
+        </CookieManager>
+        <hashTree/>
+
+        <!-- Defaults HTTP -->
+        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement"
+                           testname="HTTP Defaults" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments"
+                       guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${HOST}</stringProp>
+          <stringProp name="HTTPSampler.port">${PORT}</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+        </ConfigTestElement>
+        <hashTree/>
+
+        <!-- 1.1 GET / -->
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy"
+                          testname="GET / (homepage)" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments"
+                       guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.path">/</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <!-- Extrae CSRF desde cookie -->
+          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor"
+                               testname="Extraer csrftoken" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="script">
+def mgr = sampler.getCookieManager()
+if (mgr != null) {
+    for (int i = 0; i &lt; mgr.getCookieCount(); i++) {
+        def c = mgr.get(i)
+        if (c.getName() == "csrftoken") {
+            vars.put("csrf_token", c.getValue())
+            log.info("CSRF ok: " + c.getValue().take(8) + "...")
+            break
+        }
+    }
+}
+            </stringProp>
+          </JSR223PostProcessor>
+          <hashTree/>
+          <!-- Assert 200 -->
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion"
+                             testname="Assert 200" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">200</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <!-- Assert cabecera CSP -->
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion"
+                             testname="Assert CSP header" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">Content-Security-Policy</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <!-- Assert X-Frame-Options -->
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion"
+                             testname="Assert X-Frame-Options" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">X-Frame-Options</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <!-- Assert X-Content-Type-Options -->
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion"
+                             testname="Assert X-Content-Type-Options" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">X-Content-Type-Options</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <!-- Assert CSRF cookie presente -->
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion"
+                             testname="Assert Set-Cookie csrftoken" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">csrftoken</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+
+        <!-- Think time 300 ± 150 ms -->
+        <GaussianRandomTimer guiclass="GaussianRandomTimerGui" testclass="GaussianRandomTimer"
+                             testname="Think 300ms" enabled="true">
+          <stringProp name="ConstantTimer.delay">150</stringProp>
+          <stringProp name="RandomTimer.range">300</stringProp>
+        </GaussianRandomTimer>
+        <hashTree/>
+
+        <!-- 1.2 GET /api/catalog -->
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy"
+                          testname="GET /api/catalog" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments"
+                       guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.path">/api/catalog</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion"
+                             testname="Assert JSON" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">application/json</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion"
+                             testname="Assert respuesta &lt; 2000 ms" enabled="true">
+            <stringProp name="DurationAssertion.duration">2000</stringProp>
+          </DurationAssertion>
+          <hashTree/>
+        </hashTree>
+
+        <!-- Think time -->
+        <GaussianRandomTimer guiclass="GaussianRandomTimerGui" testclass="GaussianRandomTimer"
+                             testname="Think 400ms" enabled="true">
+          <stringProp name="ConstantTimer.delay">200</stringProp>
+          <stringProp name="RandomTimer.range">400</stringProp>
+        </GaussianRandomTimer>
+        <hashTree/>
+
+        <!-- 1.3 GET /api/auth-info -->
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy"
+                          testname="GET /api/auth-info" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments"
+                       guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.path">/api/auth-info</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion"
+                             testname="Assert auth_required en respuesta" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">auth_required</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+
+        <!-- Collector TG1 -->
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector"
+                         testname="[TG1] Resumen carga GET" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time><latency>true</latency><timestamp>true</timestamp>
+              <success>true</success><label>true</label><code>true</code>
+              <message>true</message><threadName>true</threadName>
+              <dataType>true</dataType><encoding>false</encoding>
+              <assertions>true</assertions><subresults>true</subresults>
+              <responseData>false</responseData><samplerData>false</samplerData>
+              <xml>false</xml><fieldNames>true</fieldNames>
+              <responseHeaders>true</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <bytes>true</bytes><sentBytes>true</sentBytes><url>true</url>
+              <threadCounts>true</threadCounts><idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename">/results/results_tg1.jtl</stringProp>
+        </ResultCollector>
+        <hashTree/>
+
+      </hashTree><!-- /TG1 -->
+
+      <!-- ═══════════════════════════════════════════════════════════════
+           THREAD GROUP 2: RATE LIMITING
+           1 usuario · 5 iteraciones POST /api/refresh
+           Esperado: req 1-3 → 200, req 4-5 → 429
+           ═══════════════════════════════════════════════════════════════ -->
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup"
+                   testname="TG2 - Rate Limiting (POST /api/refresh, 5 iter)" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController"
+                     guiclass="LoopControlPanel" testclass="LoopController" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">5</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.delay">3</stringProp>
+      </ThreadGroup>
+      <hashTree>
+
+        <CookieManager guiclass="CookiePanel" testclass="CookieManager"
+                       testname="Cookies TG2" enabled="true">
+          <collectionProp name="CookieManager.cookies"/>
+          <boolProp name="CookieManager.clearEachIteration">false</boolProp>
+        </CookieManager>
+        <hashTree/>
+
+        <!-- Warm-up: GET / para obtener csrftoken (solo primera iteración) -->
+        <IfController guiclass="IfControllerPanel" testclass="IfController"
+                      testname="Solo 1ra iteracion: obtener CSRF" enabled="true">
+          <stringProp name="IfController.condition">${__jexl3(${__counter(FALSE,)}) == 1}</stringProp>
+          <boolProp name="IfController.evaluateAll">false</boolProp>
+          <boolProp name="IfController.useExpression">true</boolProp>
+        </IfController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy"
+                            testname="GET / (obtener csrftoken)" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments"
+                         guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${HOST}</stringProp>
+            <stringProp name="HTTPSampler.port">${PORT}</stringProp>
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.path">/</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor"
+                                 testname="Extraer csrftoken TG2" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="script">
+def mgr = sampler.getCookieManager()
+if (mgr != null) {
+    for (int i = 0; i &lt; mgr.getCookieCount(); i++) {
+        def c = mgr.get(i)
+        if (c.getName() == "csrftoken") {
+            vars.put("csrf_token", c.getValue())
+            break
+        }
+    }
+}
+              </stringProp>
+            </JSR223PostProcessor>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+
+        <!-- POST /api/refresh con CSRF -->
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy"
+                          testname="POST /api/refresh (rate limit test)" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments"
+                       guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${HOST}</stringProp>
+          <stringProp name="HTTPSampler.port">${PORT}</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.path">/api/refresh</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments"
+                       guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <!-- Agrega X-CSRF-Token header -->
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager"
+                         testname="CSRF + Content-Type headers" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">X-CSRF-Token</stringProp>
+                <stringProp name="Header.value">${csrf_token}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <!-- Assert: primeras 3 → 200, después → 429 -->
+          <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion"
+                           testname="Assert rate limit: req&lt;=3 OK, req&gt;3 debe ser 429" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="script">
+int iter = Integer.parseInt(vars.get("__jm__TG2 - Rate Limiting (POST /api/refresh, 5 iter)__idx") ?: "0") + 1
+int code = Integer.parseInt(prev.getResponseCode() ?: "0")
+if (iter &lt;= 3) {
+    if (code != 200) {
+        AssertionResult.setFailure(true)
+        AssertionResult.setFailureMessage("Iter " + iter + ": esperado 200, obtenido " + code)
+    }
+} else {
+    if (code != 429) {
+        AssertionResult.setFailure(true)
+        AssertionResult.setFailureMessage("Iter " + iter + ": esperado 429 (rate limit), obtenido " + code)
+    }
+}
+            </stringProp>
+          </JSR223Assertion>
+          <hashTree/>
+        </hashTree>
+
+        <!-- Collector TG2 -->
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector"
+                         testname="[TG2] Rate limiting results" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time><latency>true</latency><timestamp>true</timestamp>
+              <success>true</success><label>true</label><code>true</code>
+              <message>true</message><threadName>true</threadName>
+              <dataType>true</dataType><encoding>false</encoding>
+              <assertions>true</assertions><subresults>true</subresults>
+              <responseData>false</responseData><xml>false</xml>
+              <fieldNames>true</fieldNames><responseHeaders>true</responseHeaders>
+              <bytes>true</bytes><url>true</url><threadCounts>true</threadCounts>
+              <idleTime>true</idleTime><connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename">/results/results_tg2.jtl</stringProp>
+        </ResultCollector>
+        <hashTree/>
+
+      </hashTree><!-- /TG2 -->
+
+      <!-- ═══════════════════════════════════════════════════════════════
+           THREAD GROUP 3: PROTECCIÓN CSRF
+           2 escenarios: POST sin token → 403  /  con token → 200 o 429
+           ═══════════════════════════════════════════════════════════════ -->
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup"
+                   testname="TG3 - CSRF Protection" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController"
+                     guiclass="LoopControlPanel" testclass="LoopController" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.delay">5</stringProp>
+      </ThreadGroup>
+      <hashTree>
+
+        <CookieManager guiclass="CookiePanel" testclass="CookieManager"
+                       testname="Cookies TG3" enabled="true">
+          <collectionProp name="CookieManager.cookies"/>
+          <boolProp name="CookieManager.clearEachIteration">false</boolProp>
+        </CookieManager>
+        <hashTree/>
+
+        <!-- Escenario A: POST sin X-CSRF-Token → 403 -->
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy"
+                          testname="POST sin CSRF → debe ser 403" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments"
+                       guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${HOST}</stringProp>
+          <stringProp name="HTTPSampler.port">${PORT}</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.path">/api/refresh</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager"
+                         testname="Content-Type (sin CSRF)" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion"
+                             testname="Assert 403 sin CSRF" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="49586">403</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message">POST sin CSRF-Token debe retornar 403</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+
+        <!-- Obtener cookie CSRF para siguiente request -->
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy"
+                          testname="GET / (obtener csrftoken para escenario B)" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments"
+                       guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${HOST}</stringProp>
+          <stringProp name="HTTPSampler.port">${PORT}</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.path">/</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor"
+                               testname="Extraer csrftoken TG3-B" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="script">
+def mgr = sampler.getCookieManager()
+if (mgr != null) {
+    for (int i = 0; i &lt; mgr.getCookieCount(); i++) {
+        def c = mgr.get(i)
+        if (c.getName() == "csrftoken") {
+            vars.put("csrf_token_b", c.getValue())
+            break
+        }
+    }
+}
+            </stringProp>
+          </JSR223PostProcessor>
+          <hashTree/>
+        </hashTree>
+
+        <!-- Escenario B: POST con CSRF válido → 200 (o 429 si rate limited) -->
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy"
+                          testname="POST con CSRF valido → 200 o 429" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments"
+                       guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${HOST}</stringProp>
+          <stringProp name="HTTPSampler.port">${PORT}</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.path">/api/refresh</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager"
+                         testname="CSRF headers escenario B" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">X-CSRF-Token</stringProp>
+                <stringProp name="Header.value">${csrf_token_b}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion"
+                           testname="Assert 200 o 429 con CSRF valido" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="script">
+int code = Integer.parseInt(prev.getResponseCode() ?: "0")
+if (code != 200 &amp;&amp; code != 429) {
+    AssertionResult.setFailure(true)
+    AssertionResult.setFailureMessage("Con CSRF valido se esperaba 200 o 429, obtenido: " + code)
+}
+            </stringProp>
+          </JSR223Assertion>
+          <hashTree/>
+        </hashTree>
+
+        <!-- Collector TG3 -->
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector"
+                         testname="[TG3] CSRF protection results" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time><latency>true</latency><timestamp>true</timestamp>
+              <success>true</success><label>true</label><code>true</code>
+              <message>true</message><threadName>true</threadName>
+              <dataType>true</dataType><encoding>false</encoding>
+              <assertions>true</assertions><subresults>true</subresults>
+              <responseData>false</responseData><xml>false</xml>
+              <fieldNames>true</fieldNames><responseHeaders>true</responseHeaders>
+              <bytes>true</bytes><url>true</url><threadCounts>true</threadCounts>
+              <idleTime>true</idleTime><connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename">/results/results_tg3.jtl</stringProp>
+        </ResultCollector>
+        <hashTree/>
+
+      </hashTree><!-- /TG3 -->
+
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

@@ -1,0 +1,4 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,bytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1781406145770,40,POST sin CSRF → debe ser 403,403,FORBIDDEN,TG3 - CSRF Protection 3-1,text,false,772,1,3,http://host.docker.internal:5001/api/refresh,37,0,29
+1781406145814,10,GET / (obtener csrftoken para escenario B),200,OK,TG3 - CSRF Protection 3-1,text,true,13558,1,3,http://host.docker.internal:5001/,10,0,2
+1781406146524,19,POST con CSRF valido → 200 o 429,200,OK,TG3 - CSRF Protection 3-1,text,true,625,1,3,http://host.docker.internal:5001/api/refresh,18,0,8

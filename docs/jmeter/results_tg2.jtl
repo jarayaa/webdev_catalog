@@ -1,0 +1,6 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,bytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1781406145770,40,POST /api/refresh (rate limit test),403,FORBIDDEN,"TG2 - Rate Limiting (POST /api/refresh, 5 iter) 2-1",text,false,772,1,3,http://host.docker.internal:5001/api/refresh,37,0,29
+1781406146537,15,POST /api/refresh (rate limit test),403,FORBIDDEN,"TG2 - Rate Limiting (POST /api/refresh, 5 iter) 2-1",text,false,659,1,3,http://host.docker.internal:5001/api/refresh,15,0,7
+1781406146588,12,POST /api/refresh (rate limit test),403,FORBIDDEN,"TG2 - Rate Limiting (POST /api/refresh, 5 iter) 2-1",text,false,659,1,2,http://host.docker.internal:5001/api/refresh,12,0,5
+1781406146604,9,POST /api/refresh (rate limit test),403,FORBIDDEN,"TG2 - Rate Limiting (POST /api/refresh, 5 iter) 2-1",text,false,659,1,2,http://host.docker.internal:5001/api/refresh,9,0,5
+1781406146615,7,POST /api/refresh (rate limit test),403,FORBIDDEN,"TG2 - Rate Limiting (POST /api/refresh, 5 iter) 2-1",text,false,659,1,2,http://host.docker.internal:5001/api/refresh,7,0,4

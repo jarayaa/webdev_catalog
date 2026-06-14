@@ -1309,7 +1309,7 @@ def main():
     if empty:
         threading.Thread(target=_refresh_worker, kwargs={"with_cves": True},
                          daemon=True).start()
-    print("WebDev Software Catalog → http://127.0.0.1:5001")
+    print("WebDev Software Catalog -> http://127.0.0.1:5001")
     app.run(host="127.0.0.1", port=5001, threaded=True)
 
 

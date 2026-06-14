@@ -6,3 +6,5 @@ catalog.db-shm
 config.json
 .claude/
 .env
+.scannerwork/
+docs/jmeter/html/

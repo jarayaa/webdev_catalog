@@ -1,0 +1,793 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1781406146729,16,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,13671,130,2,2,http://host.docker.internal:5001/,15,0,6
+1781406147493,10,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,13671,130,2,2,http://host.docker.internal:5001/,9,0,4
+1781406147656,168,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,1426738,225,3,3,http://host.docker.internal:5001/api/catalog,86,0,6
+1781406148088,117,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,1426738,225,3,3,http://host.docker.internal:5001/api/catalog,58,0,6
+1781406148438,11,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,622,227,3,3,http://host.docker.internal:5001/api/auth-info,10,0,4
+1781406148819,14,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,13671,130,4,4,http://host.docker.internal:5001/,13,0,6
+1781406148924,11,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,13671,130,4,4,http://host.docker.internal:5001/,11,0,5
+1781406149239,100,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,1426738,225,4,4,http://host.docker.internal:5001/api/catalog,49,0,5
+1781406149588,9,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,622,227,4,4,http://host.docker.internal:5001/api/auth-info,9,0,3
+1781406149687,13,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,13671,130,4,4,http://host.docker.internal:5001/,12,0,5
+1781406149585,131,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,1426738,225,5,5,http://host.docker.internal:5001/api/catalog,69,0,6
+1781406150038,11,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,13671,130,5,5,http://host.docker.internal:5001/,11,0,5
+1781406150127,5,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,622,227,5,5,http://host.docker.internal:5001/api/auth-info,5,0,2
+1781406150175,4,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,622,227,5,5,http://host.docker.internal:5001/api/auth-info,4,0,2
+1781406150205,20,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,13671,130,5,5,http://host.docker.internal:5001/,18,0,5
+1781406150163,100,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,1427667,225,5,5,http://host.docker.internal:5001/api/catalog,55,0,6
+1781406150296,11,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,13671,130,5,5,http://host.docker.internal:5001/,10,0,4
+1781406150574,39,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,622,227,5,5,http://host.docker.internal:5001/api/auth-info,39,0,5
+1781406150537,124,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,1428003,225,5,5,http://host.docker.internal:5001/api/catalog,69,0,4
+1781406150653,9,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,13671,130,5,5,http://host.docker.internal:5001/,9,0,4
+1781406150654,116,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,1428003,225,6,6,http://host.docker.internal:5001/api/catalog,58,0,3
+1781406150740,117,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,1428003,225,6,6,http://host.docker.internal:5001/api/catalog,64,0,4
+1781406150916,12,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,13671,130,6,6,http://host.docker.internal:5001/,12,0,5
+1781406151134,11,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,622,227,6,6,http://host.docker.internal:5001/api/auth-info,10,0,5
+1781406151209,9,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,622,227,6,6,http://host.docker.internal:5001/api/auth-info,9,0,3
+1781406151274,11,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,13671,130,6,6,http://host.docker.internal:5001/,10,0,6
+1781406151361,106,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,1428003,225,6,6,http://host.docker.internal:5001/api/catalog,53,0,5
+1781406151586,12,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,13671,130,6,6,http://host.docker.internal:5001/,11,0,6
+1781406151611,117,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,1428003,225,7,7,http://host.docker.internal:5001/api/catalog,61,0,5
+1781406151741,9,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,622,227,7,7,http://host.docker.internal:5001/api/auth-info,9,0,3
+1781406151621,187,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,1428003,225,7,7,http://host.docker.internal:5001/api/catalog,109,0,7
+1781406152190,15,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,13671,130,7,7,http://host.docker.internal:5001/,14,0,5
+1781406152193,12,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,13671,130,7,7,http://host.docker.internal:5001/,11,0,4
+1781406152252,11,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,622,227,7,7,http://host.docker.internal:5001/api/auth-info,11,0,6
+1781406152352,128,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,1428003,225,7,7,http://host.docker.internal:5001/api/catalog,59,0,6
+1781406152504,103,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,1428003,225,7,7,http://host.docker.internal:5001/api/catalog,51,0,4
+1781406152603,106,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,1428003,225,8,8,http://host.docker.internal:5001/api/catalog,54,0,5
+1781406152784,10,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,622,227,8,8,http://host.docker.internal:5001/api/auth-info,10,0,4
+1781406152821,11,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,622,227,8,8,http://host.docker.internal:5001/api/auth-info,11,0,6
+1781406152854,12,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,13671,130,8,8,http://host.docker.internal:5001/,12,0,5
+1781406153091,10,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,622,227,8,8,http://host.docker.internal:5001/api/auth-info,10,0,5
+1781406153025,132,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,1428003,225,8,8,http://host.docker.internal:5001/api/catalog,50,0,4
+1781406153191,14,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,13671,130,8,8,http://host.docker.internal:5001/,14,0,6
+1781406153198,13,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,13671,130,8,8,http://host.docker.internal:5001/,12,0,6
+1781406153310,11,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,13671,130,8,8,http://host.docker.internal:5001/,10,0,4
+1781406153458,9,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,13671,130,8,8,http://host.docker.internal:5001/,9,0,4
+1781406153583,10,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,622,227,8,8,http://host.docker.internal:5001/api/auth-info,9,0,3
+1781406153519,98,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,1428003,225,8,8,http://host.docker.internal:5001/api/catalog,48,0,4
+1781406153704,112,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,1428003,225,9,9,http://host.docker.internal:5001/api/catalog,57,0,4
+1781406153893,10,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,622,227,9,9,http://host.docker.internal:5001/api/auth-info,10,0,4
+1781406153926,11,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,13671,130,9,9,http://host.docker.internal:5001/,10,0,4
+1781406153953,9,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,622,227,9,9,http://host.docker.internal:5001/api/auth-info,8,0,3
+1781406154030,28,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,13671,130,9,9,http://host.docker.internal:5001/,26,0,6
+1781406154092,10,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,622,227,9,9,http://host.docker.internal:5001/api/auth-info,10,0,5
+1781406153985,125,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,1428003,225,9,9,http://host.docker.internal:5001/api/catalog,69,0,5
+1781406154147,143,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,1428003,225,9,9,http://host.docker.internal:5001/api/catalog,85,0,6
+1781406154262,64,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,622,227,9,9,http://host.docker.internal:5001/api/auth-info,64,0,5
+1781406154202,171,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,1428003,225,9,9,http://host.docker.internal:5001/api/catalog,121,0,6
+1781406154422,7,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,622,227,9,9,http://host.docker.internal:5001/api/auth-info,7,0,3
+1781406154441,5,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,13671,130,9,9,http://host.docker.internal:5001/,5,0,2
+1781406154451,6,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,13671,130,9,9,http://host.docker.internal:5001/,6,0,3
+1781406154490,8,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,13671,130,9,9,http://host.docker.internal:5001/,8,0,5
+1781406154521,5,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,13671,130,9,9,http://host.docker.internal:5001/,5,0,2
+1781406154771,11,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,13671,130,10,10,http://host.docker.internal:5001/,11,0,6
+1781406154856,33,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,33,0,6
+1781406154813,149,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,69,0,5
+1781406154994,6,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,6,0,3
+1781406154870,136,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,74,0,5
+1781406155074,9,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,8,0,3
+1781406155106,105,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,45,0,3
+1781406155214,6,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,13671,130,10,10,http://host.docker.internal:5001/,6,0,2
+1781406155214,6,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,13671,130,10,10,http://host.docker.internal:5001/,6,0,2
+1781406155206,100,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,51,0,2
+1781406155302,17,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,17,0,3
+1781406155357,6,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,13671,130,10,10,http://host.docker.internal:5001/,5,0,3
+1781406155275,92,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,43,0,2
+1781406155443,5,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,13671,130,10,10,http://host.docker.internal:5001/,4,0,2
+1781406155534,5,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,13671,130,10,10,http://host.docker.internal:5001/,5,0,2
+1781406155563,82,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,36,0,2
+1781406155576,141,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,62,0,2
+1781406155626,124,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,50,0,3
+1781406155732,21,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,20,0,17
+1781406155837,22,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,22,0,3
+1781406155858,6,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,6,0,3
+1781406155778,89,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,39,0,2
+1781406155811,100,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,47,0,2
+1781406155936,82,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,40,0,2
+1781406156035,5,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,13671,130,10,10,http://host.docker.internal:5001/,5,0,2
+1781406156046,5,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,5,0,3
+1781406156125,5,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,5,0,3
+1781406156148,6,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,6,0,2
+1781406156342,5,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,5,0,3
+1781406156351,5,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,5,0,2
+1781406156458,6,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,13671,130,10,10,http://host.docker.internal:5001/,5,0,3
+1781406156464,4,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,13671,130,10,10,http://host.docker.internal:5001/,4,0,2
+1781406156590,86,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,36,0,2
+1781406156698,5,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,13671,130,10,10,http://host.docker.internal:5001/,5,0,2
+1781406156793,26,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,13671,130,10,10,http://host.docker.internal:5001/,25,0,2
+1781406156862,4,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,4,0,2
+1781406156783,112,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,34,0,2
+1781406156898,6,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,13671,130,10,10,http://host.docker.internal:5001/,6,0,3
+1781406156949,5,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,13671,130,10,10,http://host.docker.internal:5001/,4,0,1
+1781406156947,7,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,13671,130,10,10,http://host.docker.internal:5001/,6,0,2
+1781406156970,4,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,13671,130,10,10,http://host.docker.internal:5001/,4,0,1
+1781406157136,4,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,4,0,1
+1781406157058,95,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,37,0,2
+1781406157126,94,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,45,0,2
+1781406157200,80,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,39,0,2
+1781406157349,11,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,11,0,2
+1781406157410,4,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,13671,130,10,10,http://host.docker.internal:5001/,4,0,1
+1781406157438,4,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,3,0,1
+1781406157322,130,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,37,0,2
+1781406157607,4,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,13671,130,10,10,http://host.docker.internal:5001/,4,0,2
+1781406157703,101,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,37,0,3
+1781406157724,157,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,51,0,2
+1781406157839,103,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,38,0,1
+1781406157940,4,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,4,0,2
+1781406158058,5,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,13671,130,10,10,http://host.docker.internal:5001/,5,0,3
+1781406158167,5,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,5,0,2
+1781406158204,5,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,5,0,3
+1781406158358,4,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,4,0,2
+1781406158472,4,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,13671,130,10,10,http://host.docker.internal:5001/,4,0,2
+1781406158508,64,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,32,0,2
+1781406158622,8,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,13671,130,10,10,http://host.docker.internal:5001/,8,0,3
+1781406158510,138,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,61,0,2
+1781406158869,4,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,4,0,2
+1781406158929,4,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,4,0,2
+1781406158945,4,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,13671,130,10,10,http://host.docker.internal:5001/,4,0,2
+1781406158964,5,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,4,0,3
+1781406159026,83,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,32,0,2
+1781406159072,79,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,36,0,1
+1781406159172,4,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,13671,130,10,10,http://host.docker.internal:5001/,4,0,1
+1781406159216,4,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,4,0,2
+1781406159294,126,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,33,0,2
+1781406159458,4,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,13671,130,10,10,http://host.docker.internal:5001/,4,0,1
+1781406159499,5,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,13671,130,10,10,http://host.docker.internal:5001/,4,0,2
+1781406159534,5,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,13671,130,10,10,http://host.docker.internal:5001/,4,0,2
+1781406159565,4,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,4,0,2
+1781406159648,7,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,13671,130,10,10,http://host.docker.internal:5001/,7,0,4
+1781406159812,7,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,13671,130,10,10,http://host.docker.internal:5001/,7,0,3
+1781406159775,103,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,39,0,2
+1781406159831,126,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,40,0,2
+1781406159867,105,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,48,0,3
+1781406159987,22,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,22,0,2
+1781406159964,115,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,43,0,2
+1781406160046,98,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,44,0,2
+1781406160161,10,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,13671,130,10,10,http://host.docker.internal:5001/,10,0,5
+1781406160202,11,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,11,0,4
+1781406160405,10,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,13671,130,10,10,http://host.docker.internal:5001/,9,0,4
+1781406160431,111,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,70,0,3
+1781406160566,9,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,13671,130,10,10,http://host.docker.internal:5001/,8,0,3
+1781406160635,14,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,14,0,4
+1781406160569,114,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,53,0,2
+1781406160711,9,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,8,0,4
+1781406160700,124,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,62,0,6
+1781406160896,10,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,10,0,4
+1781406160905,9,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,8,0,5
+1781406160956,110,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,52,0,4
+1781406161106,10,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,10,0,5
+1781406161171,9,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,13671,130,10,10,http://host.docker.internal:5001/,9,0,3
+1781406161269,9,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,9,0,5
+1781406161402,9,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,9,0,3
+1781406161295,117,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,68,0,5
+1781406161491,9,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,13671,130,10,10,http://host.docker.internal:5001/,9,0,4
+1781406161549,10,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,13671,130,10,10,http://host.docker.internal:5001/,10,0,5
+1781406161575,9,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,13671,130,10,10,http://host.docker.internal:5001/,9,0,3
+1781406161591,9,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,13671,130,10,10,http://host.docker.internal:5001/,8,0,5
+1781406161703,114,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,57,0,4
+1781406161820,104,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,57,0,4
+1781406161991,8,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,8,0,4
+1781406162059,9,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,9,0,5
+1781406162080,7,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,7,0,4
+1781406162098,107,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,42,0,2
+1781406162202,9,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,13671,130,10,10,http://host.docker.internal:5001/,8,0,2
+1781406162203,8,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,13671,130,10,10,http://host.docker.internal:5001/,7,0,2
+1781406162148,93,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,36,0,2
+1781406162236,4,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,13671,130,10,10,http://host.docker.internal:5001/,4,0,1
+1781406162319,5,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,13671,130,10,10,http://host.docker.internal:5001/,4,0,2
+1781406162351,115,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,33,0,2
+1781406162497,121,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,33,0,2
+1781406162516,118,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,65,0,2
+1781406162782,5,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,5,0,2
+1781406162836,4,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,4,0,2
+1781406162747,100,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,36,0,2
+1781406162904,9,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,13671,130,10,10,http://host.docker.internal:5001/,8,0,2
+1781406163043,4,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,4,0,2
+1781406163051,3,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,3,0,1
+1781406163099,4,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,4,0,2
+1781406163127,3,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,13671,130,10,10,http://host.docker.internal:5001/,3,0,1
+1781406163220,4,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,13671,130,10,10,http://host.docker.internal:5001/,3,0,2
+1781406163237,3,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,3,0,1
+1781406163301,4,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,4,0,1
+1781406163269,91,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,27,0,2
+1781406163524,5,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,13671,130,10,10,http://host.docker.internal:5001/,4,0,2
+1781406163661,11,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,13671,130,10,10,http://host.docker.internal:5001/,10,0,5
+1781406163686,50,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,50,0,5
+1781406163742,21,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,13671,130,10,10,http://host.docker.internal:5001/,21,0,4
+1781406163649,151,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,86,0,6
+1781406163812,29,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,28,0,6
+1781406163886,11,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,13671,130,10,10,http://host.docker.internal:5001/,10,0,4
+1781406163763,141,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,73,0,4
+1781406164148,11,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,13671,130,10,10,http://host.docker.internal:5001/,10,0,4
+1781406164178,95,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,13671,130,10,10,http://host.docker.internal:5001/,94,0,6
+1781406164222,60,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,13671,130,10,10,http://host.docker.internal:5001/,59,0,5
+1781406164156,181,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,116,0,5
+1781406164336,17,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,17,0,3
+1781406164190,213,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,159,0,6
+1781406164562,5,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,5,0,2
+1781406164615,8,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,8,0,3
+1781406164555,125,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,58,0,3
+1781406164633,140,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,71,0,3
+1781406164719,135,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,76,0,4
+1781406164870,14,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,13671,130,10,10,http://host.docker.internal:5001/,11,0,6
+1781406164746,189,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,120,0,5
+1781406164972,39,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,13671,130,10,10,http://host.docker.internal:5001/,39,0,3
+1781406164995,18,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,13671,130,10,10,http://host.docker.internal:5001/,17,0,4
+1781406164842,185,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,96,0,4
+1781406164924,147,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,83,0,2
+1781406165113,7,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,7,0,3
+1781406165212,6,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,6,0,2
+1781406165421,5,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,5,0,3
+1781406165429,97,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,28,0,2
+1781406165524,25,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,25,0,2
+1781406165529,20,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,13671,130,10,10,http://host.docker.internal:5001/,20,0,2
+1781406165559,3,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,3,0,1
+1781406165511,83,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,36,0,1
+1781406165609,3,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,13671,130,10,10,http://host.docker.internal:5001/,3,0,1
+1781406165682,6,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,6,0,3
+1781406165820,4,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,4,0,2
+1781406165788,121,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,29,0,1
+1781406165970,109,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,28,0,2
+1781406166085,6,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,13671,130,10,10,http://host.docker.internal:5001/,5,0,1
+1781406166010,98,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,37,0,2
+1781406166117,4,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,13671,130,10,10,http://host.docker.internal:5001/,4,0,2
+1781406166123,3,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,3,0,1
+1781406166185,6,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,13671,130,10,10,http://host.docker.internal:5001/,5,0,3
+1781406166247,7,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,7,0,3
+1781406166248,6,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,6,0,2
+1781406166522,12,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,13671,130,10,10,http://host.docker.internal:5001/,12,0,5
+1781406166487,74,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,38,0,3
+1781406166621,96,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,33,0,4
+1781406166727,5,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,13671,130,10,10,http://host.docker.internal:5001/,5,0,2
+1781406166760,4,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,13671,130,10,10,http://host.docker.internal:5001/,4,0,2
+1781406166887,4,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,13671,130,10,10,http://host.docker.internal:5001/,4,0,1
+1781406166916,5,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,4,0,2
+1781406166925,76,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,34,0,3
+1781406167150,14,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,14,0,4
+1781406167100,107,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,40,0,5
+1781406167209,156,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,79,0,3
+1781406167399,11,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,11,0,5
+1781406167476,12,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,13671,130,10,10,http://host.docker.internal:5001/,12,0,4
+1781406167507,10,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,10,0,5
+1781406167634,9,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,9,0,4
+1781406167687,9,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,8,0,4
+1781406167729,13,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,12,0,6
+1781406167821,16,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,13671,130,10,10,http://host.docker.internal:5001/,16,0,4
+1781406167777,60,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,13671,130,10,10,http://host.docker.internal:5001/,59,0,5
+1781406167737,190,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,96,0,4
+1781406167748,232,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,148,0,5
+1781406167987,10,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,13671,130,10,10,http://host.docker.internal:5001/,10,0,5
+1781406168045,12,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,13671,130,10,10,http://host.docker.internal:5001/,11,0,5
+1781406168050,119,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,61,0,4
+1781406168146,113,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,62,0,4
+1781406168267,9,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,13671,130,10,10,http://host.docker.internal:5001/,9,0,4
+1781406168277,9,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,13671,130,10,10,http://host.docker.internal:5001/,8,0,4
+1781406168333,11,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,13671,130,10,10,http://host.docker.internal:5001/,10,0,5
+1781406168283,115,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,57,0,3
+1781406168426,94,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,52,0,3
+1781406168572,7,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,7,0,5
+1781406168637,104,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,44,0,2
+1781406168732,127,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,67,0,5
+1781406168853,10,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,13671,130,10,10,http://host.docker.internal:5001/,9,0,3
+1781406169013,9,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,9,0,5
+1781406169075,8,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,7,0,4
+1781406169131,6,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,5,0,2
+1781406169238,74,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,37,0,2
+1781406169359,3,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,3,0,1
+1781406169421,3,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,3,0,1
+1781406169361,110,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,35,0,1
+1781406169594,5,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,13671,130,10,10,http://host.docker.internal:5001/,4,0,2
+1781406169608,6,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,6,0,3
+1781406169717,9,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,13671,130,10,10,http://host.docker.internal:5001/,8,0,4
+1781406169766,9,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,9,0,4
+1781406169790,27,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,13671,130,10,10,http://host.docker.internal:5001/,27,0,5
+1781406169813,8,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,8,0,4
+1781406169837,29,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,29,0,4
+1781406169753,125,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,60,0,4
+1781406169899,99,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,54,0,5
+1781406169919,164,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,94,0,3
+1781406170221,6,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,13671,130,10,10,http://host.docker.internal:5001/,6,0,3
+1781406170378,5,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,13671,130,10,10,http://host.docker.internal:5001/,4,0,2
+1781406170446,6,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,13671,130,10,10,http://host.docker.internal:5001/,6,0,3
+1781406170543,3,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,3,0,2
+1781406170580,4,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,13671,130,10,10,http://host.docker.internal:5001/,4,0,2
+1781406170598,4,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,13671,130,10,10,http://host.docker.internal:5001/,3,0,2
+1781406170679,6,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,5,0,3
+1781406170770,97,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,55,0,5
+1781406170779,151,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,108,0,4
+1781406171005,98,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,27,0,1
+1781406171139,4,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,13671,130,10,10,http://host.docker.internal:5001/,4,0,2
+1781406171231,6,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,13671,130,10,10,http://host.docker.internal:5001/,6,0,2
+1781406171239,5,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,5,0,2
+1781406171269,3,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,3,0,2
+1781406171279,101,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,36,0,1
+1781406171351,54,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,13671,130,10,10,http://host.docker.internal:5001/,53,0,4
+1781406171354,53,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,53,0,3
+1781406171333,111,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,65,0,3
+1781406171516,3,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,3,0,1
+1781406171433,149,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,43,0,3
+1781406171708,5,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,5,0,1
+1781406171634,112,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,44,0,2
+1781406171835,5,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,5,0,3
+1781406171869,4,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,13671,130,10,10,http://host.docker.internal:5001/,4,0,1
+1781406171932,125,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,33,0,1
+1781406172065,5,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,13671,130,10,10,http://host.docker.internal:5001/,5,0,2
+1781406172108,5,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,13671,130,10,10,http://host.docker.internal:5001/,4,0,2
+1781406172262,6,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,13671,130,10,10,http://host.docker.internal:5001/,6,0,2
+1781406172295,3,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,3,0,2
+1781406172408,4,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,4,0,2
+1781406172301,145,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,30,0,1
+1781406172504,5,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,13671,130,10,10,http://host.docker.internal:5001/,4,0,2
+1781406172570,4,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,13671,130,10,10,http://host.docker.internal:5001/,4,0,2
+1781406172616,6,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,13671,130,10,10,http://host.docker.internal:5001/,5,0,2
+1781406172664,4,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,3,0,2
+1781406172628,127,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,30,0,2
+1781406172771,98,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,30,0,2
+1781406172851,92,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,33,0,2
+1781406172984,9,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,13671,130,10,10,http://host.docker.internal:5001/,7,0,3
+1781406172938,109,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,40,0,2
+1781406173139,5,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,13671,130,10,10,http://host.docker.internal:5001/,4,0,2
+1781406173074,131,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,44,0,2
+1781406173256,8,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,7,0,2
+1781406173167,99,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,37,0,1
+1781406173454,9,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,9,0,4
+1781406173388,119,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,58,0,6
+1781406173503,10,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,10,0,3
+1781406173440,126,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,69,0,5
+1781406173714,9,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,13671,130,10,10,http://host.docker.internal:5001/,8,0,4
+1781406173737,9,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,9,0,4
+1781406173884,120,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,57,0,5
+1781406174027,8,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,8,0,3
+1781406173945,111,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,50,0,3
+1781406174086,9,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,9,0,6
+1781406174100,6,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,13671,130,10,10,http://host.docker.internal:5001/,5,0,2
+1781406174151,7,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,6,0,3
+1781406174162,7,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,6,0,4
+1781406174378,7,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,7,0,3
+1781406174302,113,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,52,0,4
+1781406174622,12,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,11,0,6
+1781406174651,9,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,9,0,4
+1781406174685,11,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,11,0,4
+1781406174685,12,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,13671,130,10,10,http://host.docker.internal:5001/,11,0,5
+1781406174699,15,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,13671,130,10,10,http://host.docker.internal:5001/,14,0,5
+1781406174806,7,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,13671,130,10,10,http://host.docker.internal:5001/,7,0,4
+1781406174822,7,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,13671,130,10,10,http://host.docker.internal:5001/,7,0,3
+1781406174872,7,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,13671,130,10,10,http://host.docker.internal:5001/,7,0,2
+1781406174913,8,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,13671,130,10,10,http://host.docker.internal:5001/,8,0,4
+1781406175114,7,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,13671,130,10,10,http://host.docker.internal:5001/,6,0,3
+1781406175280,5,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,13671,130,10,10,http://host.docker.internal:5001/,5,0,3
+1781406175303,6,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,13671,130,10,10,http://host.docker.internal:5001/,6,0,2
+1781406175390,150,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,44,0,4
+1781406175528,100,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,55,0,2
+1781406175539,174,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,112,0,2
+1781406175563,177,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,133,0,2
+1781406175590,218,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,155,0,3
+1781406175727,120,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,67,0,2
+1781406175773,141,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,77,0,2
+1781406175954,8,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,7,0,4
+1781406175805,179,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,105,0,6
+1781406175858,175,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,101,0,3
+1781406176098,8,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,13671,130,10,10,http://host.docker.internal:5001/,7,0,3
+1781406176191,7,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,13671,130,10,10,http://host.docker.internal:5001/,6,0,3
+1781406176247,4,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,4,0,2
+1781406176319,7,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,7,0,3
+1781406176323,4,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,4,0,2
+1781406176416,5,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,5,0,2
+1781406176425,7,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,13671,130,10,10,http://host.docker.internal:5001/,7,0,3
+1781406176470,6,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,13671,130,10,10,http://host.docker.internal:5001/,5,0,3
+1781406176477,5,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,5,0,2
+1781406176656,6,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,13671,130,10,10,http://host.docker.internal:5001/,6,0,2
+1781406176559,132,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,41,0,3
+1781406176704,7,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,7,0,4
+1781406176779,8,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,13671,130,10,10,http://host.docker.internal:5001/,7,0,4
+1781406176829,4,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,4,0,2
+1781406176975,19,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,19,0,2
+1781406176972,22,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,13671,130,10,10,http://host.docker.internal:5001/,22,0,3
+1781406176952,90,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,40,0,1
+1781406177116,5,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,13671,130,10,10,http://host.docker.internal:5001/,5,0,2
+1781406177177,160,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,43,0,3
+1781406177191,158,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,67,0,4
+1781406177458,7,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,7,0,4
+1781406177478,27,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,13671,130,10,10,http://host.docker.internal:5001/,26,0,3
+1781406177458,107,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,45,0,4
+1781406177513,112,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,42,0,2
+1781406177614,9,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,13671,130,10,10,http://host.docker.internal:5001/,8,0,2
+1781406177613,89,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,52,0,3
+1781406177615,139,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,90,0,3
+1781406177918,6,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,6,0,4
+1781406177992,16,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,16,0,3
+1781406178012,4,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,13671,130,10,10,http://host.docker.internal:5001/,4,0,2
+1781406178024,4,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,4,0,2
+1781406177968,118,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,1428003,225,10,10,http://host.docker.internal:5001/api/catalog,38,0,3
+1781406178285,6,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,6,0,2
+1781406178284,7,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,13671,130,10,10,http://host.docker.internal:5001/,7,0,3
+1781406178330,5,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,5,0,3
+1781406178350,6,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,6,0,3
+1781406178352,4,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,4,0,1
+1781406178514,124,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,1459603,225,10,10,http://host.docker.internal:5001/api/catalog,49,0,4
+1781406178784,6,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,13671,130,10,10,http://host.docker.internal:5001/,5,0,2
+1781406178852,30,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,13671,130,10,10,http://host.docker.internal:5001/,29,0,5
+1781406178831,109,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,1459603,225,10,10,http://host.docker.internal:5001/api/catalog,49,0,3
+1781406178934,6,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,13671,130,10,10,http://host.docker.internal:5001/,6,0,3
+1781406178942,6,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,13671,130,10,10,http://host.docker.internal:5001/,5,0,2
+1781406178993,6,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,6,0,3
+1781406179060,5,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,13671,130,10,10,http://host.docker.internal:5001/,5,0,3
+1781406179135,118,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,1459603,225,10,10,http://host.docker.internal:5001/api/catalog,57,0,2
+1781406179322,41,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,13671,130,10,10,http://host.docker.internal:5001/,40,0,5
+1781406179301,116,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,1459603,225,10,10,http://host.docker.internal:5001/api/catalog,59,0,6
+1781406179466,11,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,13671,130,10,10,http://host.docker.internal:5001/,10,0,5
+1781406179501,9,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,8,0,4
+1781406179511,9,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,8,0,5
+1781406179534,9,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,9,0,4
+1781406179527,150,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,1459603,225,10,10,http://host.docker.internal:5001/api/catalog,61,0,2
+1781406179534,184,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,1459603,225,10,10,http://host.docker.internal:5001/api/catalog,111,0,4
+1781406179828,32,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,31,0,5
+1781406179843,19,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,13671,130,10,10,http://host.docker.internal:5001/,16,0,4
+1781406179790,136,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,1459603,225,10,10,http://host.docker.internal:5001/api/catalog,66,0,4
+1781406179896,126,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,1459603,225,10,10,http://host.docker.internal:5001/api/catalog,70,0,5
+1781406180125,9,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,8,0,4
+1781406180133,12,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,13671,130,10,10,http://host.docker.internal:5001/,11,0,5
+1781406180224,8,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,8,0,4
+1781406180456,9,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,9,0,4
+1781406180501,8,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,8,0,4
+1781406180534,9,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,13671,130,10,10,http://host.docker.internal:5001/,9,0,5
+1781406180521,129,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,1459603,225,10,10,http://host.docker.internal:5001/api/catalog,70,0,4
+1781406180539,185,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,1459603,225,10,10,http://host.docker.internal:5001/api/catalog,114,0,3
+1781406180554,218,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,1459603,225,10,10,http://host.docker.internal:5001/api/catalog,155,0,4
+1781406180798,38,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,13671,130,10,10,http://host.docker.internal:5001/,37,0,4
+1781406180568,273,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,1459603,225,10,10,http://host.docker.internal:5001/api/catalog,198,0,4
+1781406180763,128,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,1459603,225,10,10,http://host.docker.internal:5001/api/catalog,69,0,4
+1781406181010,8,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,8,0,4
+1781406181036,10,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,13671,130,10,10,http://host.docker.internal:5001/,9,0,4
+1781406181181,9,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,13671,130,10,10,http://host.docker.internal:5001/,8,0,4
+1781406181200,8,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,13671,130,10,10,http://host.docker.internal:5001/,8,0,5
+1781406181327,9,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,9,0,5
+1781406181380,9,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,13671,130,10,10,http://host.docker.internal:5001/,8,0,4
+1781406181548,20,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,13671,130,10,10,http://host.docker.internal:5001/,19,0,4
+1781406181545,23,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,13671,130,10,10,http://host.docker.internal:5001/,22,0,4
+1781406181503,107,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,1459603,225,10,10,http://host.docker.internal:5001/api/catalog,56,0,3
+1781406181755,87,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,87,0,3
+1781406181663,247,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,1459603,225,10,10,http://host.docker.internal:5001/api/catalog,178,0,5
+1781406181878,133,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,1459603,225,10,10,http://host.docker.internal:5001/api/catalog,63,0,3
+1781406181925,129,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,1459603,225,10,10,http://host.docker.internal:5001/api/catalog,68,0,4
+1781406182100,121,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,1459603,225,10,10,http://host.docker.internal:5001/api/catalog,57,0,4
+1781406182214,36,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,13671,130,10,10,http://host.docker.internal:5001/,36,0,2
+1781406182183,116,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,1459603,225,10,10,http://host.docker.internal:5001/api/catalog,62,0,4
+1781406182266,50,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,50,0,4
+1781406182266,55,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,55,0,4
+1781406182217,151,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,1459603,225,10,10,http://host.docker.internal:5001/api/catalog,93,0,4
+1781406182400,8,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,8,0,4
+1781406182460,9,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,13671,130,10,10,http://host.docker.internal:5001/,8,0,4
+1781406182473,7,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,6,0,3
+1781406182514,9,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,9,0,5
+1781406182657,8,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,8,0,3
+1781406182655,10,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,10,0,4
+1781406182742,9,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,9,0,4
+1781406182781,8,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,13671,130,10,10,http://host.docker.internal:5001/,8,0,3
+1781406182840,9,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,8,0,4
+1781406182808,41,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,13671,130,10,10,http://host.docker.internal:5001/,40,0,4
+1781406182795,121,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,1459603,225,10,10,http://host.docker.internal:5001/api/catalog,49,0,3
+1781406183049,9,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,13671,130,10,10,http://host.docker.internal:5001/,9,0,4
+1781406183402,34,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,34,0,5
+1781406183376,114,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,1459603,225,10,10,http://host.docker.internal:5001/api/catalog,57,0,5
+1781406183430,112,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,1459603,225,10,10,http://host.docker.internal:5001/api/catalog,66,0,5
+1781406183554,35,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,13671,130,10,10,http://host.docker.internal:5001/,33,0,5
+1781406183594,9,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,13671,130,10,10,http://host.docker.internal:5001/,8,0,5
+1781406183454,179,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,1459603,225,10,10,http://host.docker.internal:5001/api/catalog,130,0,4
+1781406183638,17,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,13671,130,10,10,http://host.docker.internal:5001/,16,0,4
+1781406183624,31,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,13671,130,10,10,http://host.docker.internal:5001/,30,0,4
+1781406183716,10,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,13671,130,10,10,http://host.docker.internal:5001/,10,0,4
+1781406183534,230,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,1459603,225,10,10,http://host.docker.internal:5001/api/catalog,166,0,3
+1781406183855,8,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,7,0,4
+1781406183919,10,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,13671,130,10,10,http://host.docker.internal:5001/,10,0,5
+1781406184008,158,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,1459603,225,10,10,http://host.docker.internal:5001/api/catalog,75,0,4
+1781406184104,151,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,1459603,225,10,10,http://host.docker.internal:5001/api/catalog,80,0,5
+1781406184308,58,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,13671,130,10,10,http://host.docker.internal:5001/,57,0,4
+1781406184357,14,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,14,0,4
+1781406184142,244,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,1459603,225,10,10,http://host.docker.internal:5001/api/catalog,132,0,10
+1781406184235,206,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,1459603,225,10,10,http://host.docker.internal:5001/api/catalog,126,0,6
+1781406184436,7,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,7,0,3
+1781406184237,252,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,1459603,225,10,10,http://host.docker.internal:5001/api/catalog,194,0,4
+1781406184425,146,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,1459603,225,10,10,http://host.docker.internal:5001/api/catalog,80,0,5
+1781406184803,9,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,9,0,5
+1781406184998,14,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,14,0,3
+1781406184996,15,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,13671,130,10,10,http://host.docker.internal:5001/,14,0,5
+1781406185030,11,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,10,0,4
+1781406184899,146,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,1460133,225,10,10,http://host.docker.internal:5001/api/catalog,94,0,3
+1781406185167,9,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,8,0,4
+1781406185175,10,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,13671,130,10,10,http://host.docker.internal:5001/,9,0,5
+1781406185242,32,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,32,0,5
+1781406185336,97,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,1460133,225,10,10,http://host.docker.internal:5001/api/catalog,52,0,4
+1781406185489,10,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,10,0,5
+1781406185559,8,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,8,0,4
+1781406185645,12,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,13671,130,10,10,http://host.docker.internal:5001/,12,0,7
+1781406185864,15,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,13671,130,10,10,http://host.docker.internal:5001/,14,0,6
+1781406185915,20,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,13671,130,10,10,http://host.docker.internal:5001/,20,0,10
+1781406185938,12,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,13671,130,10,10,http://host.docker.internal:5001/,11,0,5
+1781406186059,8,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,13671,130,10,10,http://host.docker.internal:5001/,7,0,3
+1781406186116,8,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,13671,130,10,10,http://host.docker.internal:5001/,8,0,4
+1781406186240,8,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,7,0,4
+1781406186264,119,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,1460133,225,10,10,http://host.docker.internal:5001/api/catalog,66,0,4
+1781406186308,150,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,1460133,225,10,10,http://host.docker.internal:5001/api/catalog,81,0,4
+1781406186446,112,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,1460133,225,10,10,http://host.docker.internal:5001/api/catalog,62,0,4
+1781406186569,9,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,9,0,4
+1781406186682,42,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,13671,130,10,10,http://host.docker.internal:5001/,41,0,4
+1781406186663,114,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,1460133,225,10,10,http://host.docker.internal:5001/api/catalog,56,0,4
+1781406186779,20,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,20,0,5
+1781406186799,14,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,13671,130,10,10,http://host.docker.internal:5001/,14,0,3
+1781406186837,9,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,9,0,4
+1781406186698,150,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,1460133,225,10,10,http://host.docker.internal:5001/api/catalog,95,0,4
+1781406186758,192,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,1460133,225,10,10,http://host.docker.internal:5001/api/catalog,135,0,4
+1781406186957,10,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,10,0,4
+1781406186953,15,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,13671,130,10,10,http://host.docker.internal:5001/,14,0,6
+1781406186853,177,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,1460133,225,10,10,http://host.docker.internal:5001/api/catalog,104,0,5
+1781406187065,11,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,13671,130,10,10,http://host.docker.internal:5001/,10,0,4
+1781406187264,9,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,13671,130,10,10,http://host.docker.internal:5001/,8,0,3
+1781406187159,128,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,1460133,225,10,10,http://host.docker.internal:5001/api/catalog,79,0,4
+1781406187355,98,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,1460133,225,10,10,http://host.docker.internal:5001/api/catalog,55,0,5
+1781406187445,8,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,7,0,3
+1781406187513,7,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,7,0,3
+1781406187583,8,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,8,0,3
+1781406187595,8,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,13671,130,10,10,http://host.docker.internal:5001/,8,0,4
+1781406187671,7,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,7,0,4
+1781406187790,132,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,1460133,225,10,10,http://host.docker.internal:5001/api/catalog,52,0,3
+1781406187946,12,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,13671,130,10,10,http://host.docker.internal:5001/,12,0,4
+1781406187897,112,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,1460133,225,10,10,http://host.docker.internal:5001/api/catalog,57,0,5
+1781406188052,11,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,11,0,2
+1781406188046,17,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,13671,130,10,10,http://host.docker.internal:5001/,17,0,5
+1781406188217,12,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,13671,130,10,10,http://host.docker.internal:5001/,11,0,6
+1781406188258,125,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,1460133,225,10,10,http://host.docker.internal:5001/api/catalog,66,0,4
+1781406188385,11,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,13671,130,10,10,http://host.docker.internal:5001/,11,0,5
+1781406188268,182,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,1460133,225,10,10,http://host.docker.internal:5001/api/catalog,120,0,3
+1781406188282,255,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,1460133,225,10,10,http://host.docker.internal:5001/api/catalog,203,0,5
+1781406188521,39,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,13671,130,10,10,http://host.docker.internal:5001/,39,0,3
+1781406188440,180,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,1460133,225,10,10,http://host.docker.internal:5001/api/catalog,118,0,2
+1781406188761,9,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,9,0,5
+1781406188813,9,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,9,0,4
+1781406188962,8,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,8,0,3
+1781406188963,7,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,6,0,2
+1781406189028,27,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,26,0,3
+1781406189099,34,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,34,0,2
+1781406189097,36,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,13671,130,10,10,http://host.docker.internal:5001/,36,0,4
+1781406189082,111,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,1460133,225,10,10,http://host.docker.internal:5001/api/catalog,47,0,3
+1781406189214,111,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,1460133,225,10,10,http://host.docker.internal:5001/api/catalog,53,0,4
+1781406189423,85,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,85,0,3
+1781406189487,25,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,13671,130,10,10,http://host.docker.internal:5001/,25,0,4
+1781406189650,9,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,13671,130,10,10,http://host.docker.internal:5001/,8,0,3
+1781406189695,8,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,8,0,3
+1781406189756,13,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,13671,130,10,10,http://host.docker.internal:5001/,13,0,4
+1781406189691,134,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,1460133,225,10,10,http://host.docker.internal:5001/api/catalog,75,0,3
+1781406189744,240,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,1460133,225,10,10,http://host.docker.internal:5001/api/catalog,193,0,8
+1781406190105,205,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,205,0,4
+1781406190116,199,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,13671,130,10,10,http://host.docker.internal:5001/,199,0,5
+1781406190143,174,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,13671,130,10,10,http://host.docker.internal:5001/,173,0,4
+1781406190272,154,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,1460133,225,10,10,http://host.docker.internal:5001/api/catalog,116,0,4
+1781406190461,8,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,13671,130,10,10,http://host.docker.internal:5001/,8,0,4
+1781406190514,9,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,8,0,5
+1781406190620,11,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,13671,130,10,10,http://host.docker.internal:5001/,10,0,4
+1781406190643,145,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,1460133,225,10,10,http://host.docker.internal:5001/api/catalog,57,0,5
+1781406190908,14,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,14,0,6
+1781406190989,22,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,22,0,5
+1781406191044,7,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,13671,130,10,10,http://host.docker.internal:5001/,6,0,2
+1781406190949,125,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,1460133,225,10,10,http://host.docker.internal:5001/api/catalog,59,0,5
+1781406191227,43,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,43,0,5
+1781406191252,21,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,13671,130,10,10,http://host.docker.internal:5001/,21,0,4
+1781406191194,126,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,1460133,225,10,10,http://host.docker.internal:5001/api/catalog,74,0,4
+1781406191248,123,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,1460133,225,10,10,http://host.docker.internal:5001/api/catalog,77,0,4
+1781406191391,14,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,13671,130,10,10,http://host.docker.internal:5001/,13,0,5
+1781406191342,128,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,1460133,225,10,10,http://host.docker.internal:5001/api/catalog,57,0,3
+1781406191358,153,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,1460133,225,10,10,http://host.docker.internal:5001/api/catalog,99,0,3
+1781406191548,61,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,60,0,4
+1781406191441,239,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,1460133,225,10,10,http://host.docker.internal:5001/api/catalog,166,0,4
+1781406191673,9,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,8,0,4
+1781406191725,10,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,13671,130,10,10,http://host.docker.internal:5001/,10,0,4
+1781406191791,9,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,13671,130,10,10,http://host.docker.internal:5001/,8,0,4
+1781406191966,45,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,45,0,7
+1781406192016,7,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,7,0,4
+1781406192026,8,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,8,0,4
+1781406191947,112,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,1460133,225,10,10,http://host.docker.internal:5001/api/catalog,63,0,4
+1781406192177,18,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,18,0,6
+1781406192258,8,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,8,0,4
+1781406192385,40,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,40,0,3
+1781406192288,148,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,1460133,225,10,10,http://host.docker.internal:5001/api/catalog,72,0,4
+1781406192435,7,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,7,0,3
+1781406192443,8,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,7,0,3
+1781406192350,137,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,1460133,225,10,10,http://host.docker.internal:5001/api/catalog,73,0,4
+1781406192523,24,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,24,0,5
+1781406192537,11,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,11,0,5
+1781406192554,10,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,10,0,5
+1781406192484,115,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,1460133,225,10,10,http://host.docker.internal:5001/api/catalog,56,0,2
+1781406192591,140,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,1460133,225,10,10,http://host.docker.internal:5001/api/catalog,66,0,4
+1781406192784,11,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,11,0,5
+1781406192877,11,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,11,0,4
+1781406192914,10,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,10,0,5
+1781406192923,8,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,8,0,4
+1781406193018,7,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,7,0,4
+1781406193141,9,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,9,0,3
+1781406193140,10,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,10,0,4
+1781406193165,8,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,8,0,4
+1781406193276,26,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,true,,622,227,10,10,http://host.docker.internal:5001/api/auth-info,26,0,5
+1781406193264,38,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,38,0,4
+1781406193441,6,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,6,0,3
+1781406193460,6,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,6,0,2
+1781406193565,8,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,8,0,4
+1781406193621,8,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,8,0,4
+1781406193695,9,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,9,0,4
+1781406193732,6,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,6,0,3
+1781406193834,10,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,10,0,5
+1781406193904,5,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,5,0,3
+1781406194042,7,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,7,0,4
+1781406194092,12,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,12,0,5
+1781406194163,7,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,6,0,4
+1781406194285,8,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,7,0,4
+1781406194292,4,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,4,0,2
+1781406194336,4,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,4,0,2
+1781406194391,6,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,6,0,3
+1781406194424,5,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,5,0,3
+1781406194537,5,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,5,0,2
+1781406194575,10,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,10,0,5
+1781406194597,8,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,7,0,4
+1781406194620,6,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,6,0,3
+1781406194787,10,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,10,0,5
+1781406194804,9,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,9,0,4
+1781406194833,10,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,9,0,4
+1781406194947,7,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,7,0,3
+1781406194951,4,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,3,0,1
+1781406194951,5,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,5,0,1
+1781406195054,6,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,6,0,2
+1781406195061,4,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,4,0,1
+1781406195124,5,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,5,0,3
+1781406195179,4,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,4,0,2
+1781406195225,8,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,8,0,4
+1781406195343,5,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,5,0,2
+1781406195416,7,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,7,0,3
+1781406195589,8,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,8,0,4
+1781406195701,4,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,4,0,2
+1781406195710,5,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,5,0,3
+1781406195786,3,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,3,0,1
+1781406195824,4,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,3,0,1
+1781406195912,9,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,9,0,4
+1781406195948,11,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,11,0,6
+1781406195984,12,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,12,0,5
+1781406195985,11,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,11,0,4
+1781406196003,8,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,8,0,4
+1781406196120,3,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,3,0,1
+1781406196181,5,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,5,0,2
+1781406196178,8,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,8,0,3
+1781406196214,9,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,9,0,4
+1781406196368,4,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,4,0,1
+1781406196433,5,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,4,0,2
+1781406196574,4,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,4,0,2
+1781406196719,4,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,4,0,2
+1781406196755,4,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,4,0,2
+1781406196799,5,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,5,0,2
+1781406196799,5,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,5,0,2
+1781406196921,5,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,5,0,3
+1781406196949,4,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,4,0,2
+1781406197010,4,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,4,0,2
+1781406197025,3,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,3,0,1
+1781406197231,5,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,5,0,3
+1781406197235,3,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,3,0,1
+1781406197274,3,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,3,0,2
+1781406197317,5,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,5,0,2
+1781406197345,5,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,5,0,2
+1781406197449,7,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,7,0,4
+1781406197548,4,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,4,0,3
+1781406197559,3,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,3,0,1
+1781406197692,4,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,3,0,2
+1781406197741,3,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,3,0,1
+1781406197828,4,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,4,0,2
+1781406197842,3,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,3,0,1
+1781406197870,6,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,6,0,3
+1781406197972,3,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,3,0,1
+1781406198088,6,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,6,0,4
+1781406198199,6,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,6,0,3
+1781406198205,3,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,3,0,2
+1781406198211,3,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,3,0,1
+1781406198334,8,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,8,0,4
+1781406198345,2,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,2,0,1
+1781406198380,4,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,4,0,2
+1781406198421,4,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,4,0,2
+1781406198568,5,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,5,0,2
+1781406198612,3,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,3,0,1
+1781406198713,5,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,5,0,2
+1781406198795,5,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,5,0,2
+1781406198846,4,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,4,0,2
+1781406198856,3,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,3,0,1
+1781406198984,5,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,5,0,2
+1781406199180,4,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,4,0,2
+1781406199264,6,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,6,0,3
+1781406199297,4,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,4,0,2
+1781406199300,4,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,4,0,2
+1781406199466,5,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,5,0,3
+1781406199489,4,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,4,0,2
+1781406199496,2,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,2,0,1
+1781406199594,7,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,7,0,4
+1781406199613,3,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,3,0,1
+1781406199658,6,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,6,0,3
+1781406199723,5,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,5,0,2
+1781406199732,2,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,2,0,1
+1781406199804,3,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,3,0,2
+1781406199833,4,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,4,0,2
+1781406199880,4,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,4,0,2
+1781406199939,6,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,6,0,4
+1781406199970,4,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,4,0,2
+1781406200176,3,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,3,0,1
+1781406200173,6,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,6,0,3
+1781406200276,5,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,5,0,3
+1781406200283,3,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,3,0,1
+1781406200282,4,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,4,0,2
+1781406200384,5,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,5,0,3
+1781406200404,3,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,3,0,1
+1781406200418,2,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,2,0,1
+1781406200477,6,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,6,0,3
+1781406200597,5,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,5,0,3
+1781406200639,3,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,3,0,2
+1781406200650,2,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,2,0,1
+1781406200798,7,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,7,0,4
+1781406200868,5,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,5,0,3
+1781406200935,4,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,4,0,2
+1781406201195,3,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,3,0,1
+1781406201252,4,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,4,0,2
+1781406201313,7,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,6,0,3
+1781406201416,7,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,7,0,4
+1781406201471,7,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,7,0,4
+1781406201477,4,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,4,0,2
+1781406201544,7,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,7,0,4
+1781406201635,3,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,3,0,1
+1781406201750,6,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,6,0,3
+1781406201889,5,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,5,0,2
+1781406201920,5,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,5,0,3
+1781406202015,6,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,6,0,3
+1781406202031,3,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,3,0,2
+1781406202044,3,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,2,0,1
+1781406202058,3,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,3,0,2
+1781406202123,5,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,5,0,3
+1781406202174,4,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,4,0,2
+1781406202186,3,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,3,0,1
+1781406202379,5,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,5,0,3
+1781406202407,3,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,3,0,2
+1781406202449,4,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,4,0,2
+1781406202526,5,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,4,0,2
+1781406202603,3,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,3,0,2
+1781406202798,4,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,4,0,2
+1781406202855,4,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,4,0,1
+1781406202883,4,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,4,0,1
+1781406202884,4,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,4,0,1
+1781406203111,6,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,6,0,3
+1781406203219,8,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,8,0,4
+1781406203346,8,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,8,0,5
+1781406203362,2,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,2,0,1
+1781406203395,4,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,4,0,2
+1781406203473,6,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,6,0,4
+1781406203493,4,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,3,0,2
+1781406203750,5,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,5,0,2
+1781406203804,6,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,5,0,3
+1781406203883,4,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,4,0,2
+1781406203935,6,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,6,0,3
+1781406203990,9,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,9,0,3
+1781406203992,8,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,8,0,1
+1781406204009,3,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,3,0,1
+1781406204059,3,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,3,0,2
+1781406204083,3,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,3,0,1
+1781406204086,4,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,4,0,2
+1781406204187,4,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,4,0,2
+1781406204196,3,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,2,0,1
+1781406204318,4,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,4,0,2
+1781406204382,5,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,5,0,3
+1781406204613,5,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,false,Test failed: headers expected to contain /application/json/,741,225,10,10,http://host.docker.internal:5001/api/catalog,5,0,2
+1781406204972,5,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,false,Test failed: text expected to contain /auth_required/,741,227,10,10,http://host.docker.internal:5001/api/auth-info,5,0,3
+1781406205052,4,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,3,0,2
+1781406205116,7,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-7",text,false,Test failed: code expected to contain /200/,854,130,10,10,http://host.docker.internal:5001/,7,0,4
+1781406205141,3,GET /api/auth-info,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-5",text,false,Test failed: text expected to contain /auth_required/,741,227,9,9,http://host.docker.internal:5001/api/auth-info,3,0,1
+1781406205160,3,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,false,Test failed: code expected to contain /200/,854,130,8,8,http://host.docker.internal:5001/,3,0,2
+1781406205279,7,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-10",text,false,Test failed: headers expected to contain /application/json/,741,225,8,8,http://host.docker.internal:5001/api/catalog,7,0,4
+1781406205285,4,GET / (homepage),429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-8",text,false,Test failed: code expected to contain /200/,854,130,7,7,http://host.docker.internal:5001/,3,0,2
+1781406205597,6,GET /api/catalog,429,TOO MANY REQUESTS,"TG1 - Carga General (GET, 10u, 60s) 1-2",text,false,Test failed: headers expected to contain /application/json/,741,225,6,6,http://host.docker.internal:5001/api/catalog,6,0,4
+1781406203671,11336,GET /api/catalog,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-1",text,false,"The operation lasted too long: It took 11,336 milliseconds, but should not have lasted longer than 2,000 milliseconds.",1460133,225,5,5,http://host.docker.internal:5001/api/catalog,11242,0,11215
+1781406203944,11199,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-4",text,true,,622,227,4,4,http://host.docker.internal:5001/api/auth-info,11199,0,11197
+1781406204528,11386,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-9",text,true,,622,227,3,3,http://host.docker.internal:5001/api/auth-info,11385,0,11382
+1781406204844,11325,GET /api/auth-info,200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-6",text,true,,622,227,2,2,http://host.docker.internal:5001/api/auth-info,11325,0,11322
+1781406204805,11364,GET / (homepage),200,OK,"TG1 - Carga General (GET, 10u, 60s) 1-3",text,true,,13671,130,2,2,http://host.docker.internal:5001/,11364,0,11361
